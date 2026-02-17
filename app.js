@@ -1,9 +1,19 @@
-// Minimal enhancements: scroll-reveal (subtle, institutional)
+// Safe scroll-reveal:
+// - If JS fails: content should still be visible (handled by CSS change below)
+// - If "Reduce motion" is enabled: show content immediately
+
 (() => {
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return;
+  document.documentElement.classList.add("js");
 
   const els = document.querySelectorAll("[data-reveal]");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // If user prefers reduced motion, just show everything (no animation).
+  if (prefersReduced) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
