@@ -245,6 +245,25 @@ h3{
 .footer__links{display:flex; gap:14px; color:var(--muted)}
 .footer__links a:hover{color:var(--text)}
 
+.team-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:999px; /* circle */
+  object-fit:cover;
+  border:1px solid rgba(17,17,17,0.10);
+  box-shadow: 0 8px 18px rgba(17,17,17,0.06);
+
+  /* institutional look */
+  filter: grayscale(100%) contrast(1.05);
+}
+
+
 /* Reveal (failsafe): visible by default */
 [data-reveal]{opacity:1; transform:none}
 
