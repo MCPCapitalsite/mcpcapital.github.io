@@ -245,6 +245,9 @@ h3{
 .footer__links{display:flex; gap:14px; color:var(--muted)}
 .footer__links a:hover{color:var(--text)}
 
-/* Reveal */
-[data-reveal]{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
-[data-reveal].is-visible{opacity:1; transform:none}
+/* Reveal (failsafe): visible by default */
+[data-reveal]{opacity:1; transform:none}
+
+/* Only hide/animate when JS is confirmed running */
+.js [data-reveal]{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
+.js [data-reveal].is-visible{opacity:1; transform:none}
