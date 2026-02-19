@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MCP Capital</title>
-    <meta name="description" content="Succession-first investing in European SMEs." />
+    <meta name="description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
+
+    <!-- Open Graph (nice for sharing) -->
+    <meta property="og:title" content="MCP Capital" />
+    <meta property="og:description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
+    <meta property="og:type" content="website" />
 
     <!-- Fonts: Cormorant Garamond (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,91 +23,161 @@
   </head>
 
   <body>
+    <!-- HEADER -->
     <header class="nav">
-      <div class="nav__inner">
-        <a class="brand" href="#top" aria-label="MCP Capital">MCP Capital</a>
+      <div class="container nav__inner">
+        <a class="brand" href="#top" aria-label="MCP Capital home">
+          <picture>
+            <source srcset="assets/brand/MCPLogo.svg" type="image/svg+xml" />
+            <img
+              class="brand__logo"
+              src="assets/brand/MCPLogo.png"
+              alt="MCP Capital"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
+        </a>
 
         <nav class="menu" aria-label="Primary navigation">
           <a href="#about">About</a>
-          <a href="#approach">Approach</a>
+          <a href="#process">How we work</a>
           <a href="#criteria">Criteria</a>
-          <a href="#value">Value Creation</a>
+          <a href="#value">Value creation</a>
           <a href="#team">Team</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        <a class="btn btn--primary" href="#contact">Request the deck</a>
+        <a class="btn btn--primary" href="#contact">Contact us</a>
       </div>
     </header>
 
     <main id="top">
       <!-- HERO -->
       <section class="hero" aria-label="Hero">
-        <div class="hero__content container" data-reveal>
-          <h1>Succession-first investing in European SMEs.</h1>
+        <div class="container hero__content" data-reveal>
+          <h1>Long-term SME acquirer (Search Fund).</h1>
           <p>
-            MCP Capital partners with founders and operators to acquire and scale profitable SMEs
-            through a CEO-first methodology and disciplined governance.
+            We partner with SME owners and operator-CEOs to execute acquisitions and build enduring
+            businesses across the Benelux.
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#contact">Request the deck</a>
-            <a class="btn btn--secondary" href="#about">Learn more</a>
+            <a class="btn btn--primary" href="#contact">Contact us</a>
+            <a class="btn btn--secondary" href="#process">How we work</a>
           </div>
 
-          <div class="hero__proof" aria-label="Proof points">
-            <span>CEO-first model</span>
-            <span>Long-term ownership mindset</span>
-            <span>Operational + financing expertise</span>
+          <!-- Values: bigger + clickable -->
+          <div class="values-mini" aria-label="Values">
+            <a class="pill" href="#value">Long-term ownership</a>
+            <a class="pill" href="#process">Operator-led</a>
+            <a class="pill" href="#value">Pragmatic execution</a>
+            <a class="pill" href="#value">Responsible ownership</a>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT / THESIS -->
+      <!-- ABOUT -->
       <section id="about" class="section">
         <div class="container split" data-reveal>
           <div>
-            <h2>A structural succession opportunity</h2>
+            <h2>What we are</h2>
             <p>
-              We focus on succession-driven acquisitions of profitable SMEs, preserving founder legacies
-              while building the next growth chapter.
+              MCP Capital is a Search Fund / long-term acquisition vehicle focused on majority
+              acquisitions of high-quality SMEs.
             </p>
             <p class="muted">
-              Our approach combines disciplined selection, operator alignment, and a governance cadence
-              designed for durable compounding.
+              We aim for discreet, founder-friendly processes, pairing strong businesses with the
+              right leaders and a pragmatic execution model.
             </p>
+
+            <div class="what-grid">
+              <div class="what-col">
+                <h3 class="h3-small">What we are</h3>
+                <ul class="bullets">
+                  <li>Long-term owner (10+ year mindset)</li>
+                  <li>Majority acquirer (control where needed)</li>
+                  <li>Operator-led governance and execution cadence</li>
+                </ul>
+              </div>
+              <div class="what-col">
+                <h3 class="h3-small">What we are not</h3>
+                <ul class="bullets">
+                  <li>Not a broker / intermediary</li>
+                  <li>Not an opportunistic “flip” fund</li>
+                  <li>Not a consulting firm</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <div class="card">
-            <h3>What we do</h3>
+          <div class="card card--accent">
+            <h3>Positioning</h3>
             <p>
-              A hybrid Search Fund + Private Equity governance model pairing exceptional operators with enduring businesses.
+              A strategic bridge between owners and CEOs: we identify strong SMEs and match them
+              with proven operators to drive long-term performance.
             </p>
             <div class="kpi">
-              <div><div class="kpi__label">Mindset</div><div class="kpi__value">Long-term</div></div>
-              <div><div class="kpi__label">Method</div><div class="kpi__value">CEO-first</div></div>
+              <div>
+                <div class="kpi__label">Focus</div>
+                <div class="kpi__value">Benelux SMEs</div>
+              </div>
+              <div>
+                <div class="kpi__label">Model</div>
+                <div class="kpi__value">Operator-led</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- IMAGE DIVIDER -->
+      <!-- DIVIDER -->
       <section class="divider divider--mountains" aria-hidden="true"></section>
 
-      <!-- APPROACH -->
-      <section id="approach" class="section section--soft">
+      <!-- PROCESS -->
+      <section id="process" class="section section--soft">
         <div class="container" data-reveal>
-          <h2>CEO-first methodology</h2>
+          <h2>How we work</h2>
           <p class="muted">
-            We prioritize leadership fit and incentive alignment, then execute the acquisition with disciplined underwriting and governance.
+            The process is two-way: we select the right operator for the right business — and we
+            select the right business for the right operator.
           </p>
 
-          <ol class="timeline" aria-label="CEO-first steps">
-            <li><strong>Define</strong> the ideal CEO profile and success criteria</li>
-            <li><strong>Source & vet</strong> candidates through a structured process</li>
-            <li><strong>Match</strong> CEO + target business</li>
-            <li><strong>Align</strong> incentives via meaningful equity participation</li>
-            <li><strong>Operate</strong> with a clear cadence, KPIs, and board governance</li>
+          <!-- Mirror layout: CEO -> Target AND Target -> CEO -->
+          <div class="mirror">
+            <div class="mirror__col">
+              <div class="mirror__label">CEO → Target</div>
+              <div class="mirror__card">
+                <h3 class="h3-small">Operator search & selection</h3>
+                <ul class="bullets">
+                  <li>Define CEO profile and success criteria</li>
+                  <li>Source & vet candidates (structured assessment)</li>
+                  <li>Shortlist with evidence-based screening</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mirror__arrow" aria-hidden="true">↔</div>
+
+            <div class="mirror__col">
+              <div class="mirror__label">Target → CEO</div>
+              <div class="mirror__card">
+                <h3 class="h3-small">Matching & integration</h3>
+                <ul class="bullets">
+                  <li>Match operator strengths to business needs</li>
+                  <li>Align incentives (meaningful equity)</li>
+                  <li>Transition plan + governance cadence</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <ol class="timeline" aria-label="Process steps">
+            <li><strong>Identify</strong> a high-quality SME aligned with our criteria</li>
+            <li><strong>Engage</strong> discreetly and align on confidentiality + intent</li>
+            <li><strong>Structure</strong> LOI → diligence → financing</li>
+            <li><strong>Close</strong> with clear governance and incentives</li>
+            <li><strong>Execute</strong> a 90-day plan and KPI rhythm post-acquisition</li>
           </ol>
         </div>
       </section>
@@ -110,53 +185,70 @@
       <!-- CRITERIA -->
       <section id="criteria" class="section">
         <div class="container" data-reveal>
-          <h2>Target criteria</h2>
-          <div class="grid">
-            <div class="card"><h3>Revenue</h3><p>€2–3m</p></div>
-            <div class="card"><h3>EBITDA margin</h3><p>&gt; 10%</p></div>
-            <div class="card"><h3>Scalability</h3><p>Organic growth capacity</p></div>
-            <div class="card"><h3>Sectors</h3><p>E-commerce • Healthcare • B2B Services</p></div>
+          <h2>Investment criteria</h2>
+
+          <div class="grid grid--3">
+            <div class="card">
+              <h3>Revenue</h3>
+              <p>€1–5m</p>
+            </div>
+            <div class="card">
+              <h3>Geography</h3>
+              <p>Benelux (focus)</p>
+            </div>
+            <div class="card">
+              <h3>Boring businesses</h3>
+              <p>Predictable, essential, resilient</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:16px">
+            <h3>Sectors (focus)</h3>
+            <p class="muted" style="margin:0">
+              B2B Services • Healthcare & Wellness • Essential / non-cyclical SME services
+            </p>
           </div>
 
           <div class="note">
             <span class="note__dot"></span>
-            We avoid profiles that do not match a succession-driven SME acquisition thesis (e.g., early-stage / high-burn models).
+            We prioritize clarity, resilience, and operational simplicity over “story stocks.”
           </div>
         </div>
       </section>
 
-      <!-- IMAGE DIVIDER -->
+      <!-- DIVIDER -->
       <section class="divider divider--sport" aria-hidden="true"></section>
 
       <!-- VALUE CREATION -->
       <section id="value" class="section section--soft">
         <div class="container" data-reveal>
           <h2>Value creation</h2>
+
           <div class="grid grid--3">
-            <div class="card">
-              <h3>Operational excellence</h3>
-              <p>Margin discipline, execution rhythm, and practical operational improvement.</p>
+            <div class="card card--hover">
+              <h3>Operational rigor</h3>
+              <p>Execution rhythm, KPI discipline, practical operational improvement.</p>
             </div>
-            <div class="card">
-              <h3>Growth initiatives</h3>
-              <p>Commercial acceleration, partnerships, and selective organic scaling.</p>
+            <div class="card card--hover">
+              <h3>Commercial focus</h3>
+              <p>Selective growth initiatives, partnerships, and go-to-market refinement.</p>
             </div>
-            <div class="card">
-              <h3>Financing expertise</h3>
-              <p>Structuring and lender access to support the right capital stack.</p>
+            <div class="card card--hover">
+              <h3>Financing structure</h3>
+              <p>Pragmatic structuring and lender access to support the right capital stack.</p>
             </div>
           </div>
 
-          <div class="split split--tight">
-            <div class="card">
-              <h3>For founders</h3>
-              <p>Continuity, respect for legacy, and a clear succession process.</p>
-              <a class="link" href="#contact">Start a conversation</a>
+          <div class="split split--tight" style="margin-top:18px">
+            <div class="card card--hover">
+              <h3>For owners</h3>
+              <p>Continuity, discretion, and a founder-friendly succession process.</p>
+              <a class="link" href="#contact">Discuss your situation</a>
             </div>
-            <div class="card">
-              <h3>For investors</h3>
-              <p>Disciplined governance and downside-aware underwriting.</p>
-              <a class="link" href="#contact">Request the deck</a>
+            <div class="card card--hover">
+              <h3>For operators / CEOs</h3>
+              <p>Meaningful equity, clear governance, and operational autonomy.</p>
+              <a class="link" href="#contact">Get in touch</a>
             </div>
           </div>
         </div>
@@ -166,54 +258,70 @@
       <section id="team" class="section">
         <div class="container" data-reveal>
           <h2>Team</h2>
-          <p class="muted">People are the core asset.</p>
+          <p class="muted">Standardized profiles. Proof-based bios. No filler.</p>
 
           <div class="grid grid--team">
-            <div class="card team-card">
-              <img class="avatar" src="assets/team/kevin-camps.jpg" alt="Kevin Camps" loading="lazy" decoding="async" />
-              <div>
-                <h3>Kevin Camps</h3>
-                <p>Managing Partner • Chief Human Resources Officer</p>
+            <details class="card team-card">
+              <summary class="team-card__summary">
+                <img class="avatar" src="assets/team/kevin-camps.jpg" alt="Kevin Camps" loading="lazy" decoding="async" />
+                <div class="team-card__body">
+                  <h3>Kevin Camps</h3>
+                  <p>Managing Partner • Chief Human Resources Officer</p>
+                  <span class="team-card__hint">View bio</span>
+                </div>
+              </summary>
+              <div class="team-bio">
+                Leads operator sourcing and assessment; focuses on CEO-to-target fit, leadership screening, and transition support.
               </div>
-            </div>
-          
-            <div class="card team-card">
-              <img class="avatar" src="assets/team/jeremy-temp.jpg" alt="Jeremy Mestdagh" loading="lazy" decoding="async" />
-              <div>
-                <h3>Jeremy Mestdagh</h3>
-                <p>Managing Partner • Head of Investment</p>
+            </details>
+
+            <details class="card team-card">
+              <summary class="team-card__summary">
+                <img class="avatar" src="assets/team/jeremy-mestdagh.jpg" alt="Jeremy Mestdagh" loading="lazy" decoding="async" />
+                <div class="team-card__body">
+                  <h3>Jeremy Mestdagh</h3>
+                  <p>Managing Partner • Head of Investment</p>
+                  <span class="team-card__hint">View bio</span>
+                </div>
+              </summary>
+              <div class="team-bio">
+                Leads investment selection and transaction execution; focuses on underwriting, risk, and governance for long-term ownership.
               </div>
-            </div>
-          
-            <div class="card team-card">
-              <img class="avatar" src="assets/team/emmanuel-piechowski.jpg" alt="Emmanuel Piechowski" loading="lazy" decoding="async" />
-              <div>
-                <h3>Emmanuel Piechowski</h3>
-                <p>Directeur Général Finances • Group CFO</p>
+            </details>
+
+            <details class="card team-card">
+              <summary class="team-card__summary">
+                <img class="avatar" src="assets/team/emmanuel-piechowski.jpg" alt="Emmanuel Piechowski" loading="lazy" decoding="async" />
+                <div class="team-card__body">
+                  <h3>Emmanuel Piechowski</h3>
+                  <p>Group CFO • Finance</p>
+                  <span class="team-card__hint">View bio</span>
+                </div>
+              </summary>
+              <div class="team-bio">
+                Oversees finance and structuring; supports transaction execution, financing, and post-acquisition reporting discipline.
               </div>
-            </div>
-          
-            <div class="card team-card">
-              <img class="avatar" src="assets/team/giulio-monaco.jpg" alt="Giulio Monaco" loading="lazy" decoding="async" />
-              <div>
-                <h3>Giulio Monaco</h3>
-                <p>Associate</p>
+            </details>
+
+            <details class="card team-card">
+              <summary class="team-card__summary">
+                <img class="avatar" src="assets/team/giulio-monaco.jpg" alt="Giulio Monaco" loading="lazy" decoding="async" />
+                <div class="team-card__body">
+                  <h3>Giulio Monaco</h3>
+                  <p>Associate</p>
+                  <span class="team-card__hint">View bio</span>
+                </div>
+              </summary>
+              <div class="team-bio">
+                Supports sourcing, analysis, and execution; focuses on deal screening and practical diligence workstreams.
               </div>
-            </div>
-          
-            <div class="card team-card">
-              <img class="avatar" src="assets/team/nino-meessen.jpg" alt="Nino Meessen" loading="lazy" decoding="async" />
-              <div>
-                <h3>Nino Meessen</h3>
-                <p>Analyst</p>
-              </div>
-            </div>
+            </details>
           </div>
         </div>
       </section>
 
-      <!-- IMAGE DIVIDER -->
-      <section class="divider divider--brussels" aria-hidden="true"></section>
+      <!-- DIVIDER (coherent: waves, not “arc/monument”) -->
+      <section class="divider divider--waves" aria-hidden="true"></section>
 
       <!-- CONTACT -->
       <section id="contact" class="section">
@@ -224,26 +332,33 @@
 
             <div class="contactcards">
               <div class="contactcard">
-                <div class="contactcard__title">Nino Meessen</div>
-                <div class="muted">info@mcpcapital.eu • +32 (0)4 91 18 84 46</div>
+                <div class="contactcard__title">Email</div>
+                <div class="muted">info@mcpcapital.eu</div>
               </div>
+
               <div class="contactcard">
-                <div class="contactcard__title">Giulio Monaco</div>
-                <div class="muted">giulio.monaco@mcpcapital.eu • +32 (0)4 92 31 03 13</div>
+                <div class="contactcard__title">Phone</div>
+                <div class="muted">Giulio Monaco • +32 (0)4 92 31 03 13</div>
+              </div>
+
+              <div class="contactcard">
+                <div class="contactcard__title">Location</div>
+                <div class="muted">Brussels, Belgium</div>
               </div>
             </div>
 
             <p class="small muted">
-              MVP: the “Request the deck” action is an email link; we can wire a real form later (Formspree) while staying on GitHub Pages.
+              V1: no public deck. If needed later, we can add gated forms (Owner vs Operator) while staying on GitHub Pages.
             </p>
           </div>
 
           <div class="card">
-            <h3>Request the deck</h3>
-            <p class="muted small">Click to generate an email with context. Replace addresses later if needed.</p>
+            <h3>Send a message</h3>
+            <p class="muted small">This opens your email client with a structured template.</p>
+
             <a
               class="btn btn--primary"
-              href="mailto:info@mcpcapital.eu?subject=Investor%20deck%20request%20-%20MCP%20Capital&body=Hello%20MCP%20Capital%2C%0D%0A%0D%0AI%27d%20like%20to%20request%20the%20investor%20deck.%0D%0A%0D%0AName%3A%20%0D%0ACompany%3A%20%0D%0AProfile%20(founder%2Finvestor%2Foperator)%3A%20%0D%0A%0D%0ARegards%2C"
+              href="mailto:info@mcpcapital.eu?subject=Introduction%20-%20MCP%20Capital&body=Hello%20MCP%20Capital%2C%0D%0A%0D%0AProfile%20(owner%2Finvestor%2Foperator)%3A%20%0D%0ACompany%3A%20%0D%0ALocation%3A%20%0D%0ATiming%3A%20%0D%0A%0D%0AMessage%3A%0D%0A%0D%0ARegards%2C"
             >
               Email MCP Capital
             </a>
@@ -259,10 +374,10 @@
       <section class="cta-band">
         <div class="container cta-band__inner" data-reveal>
           <div>
-            <h2>Let’s discuss your succession or investment objectives.</h2>
-            <p class="muted">A discreet, disciplined process — built for long-term outcomes.</p>
+            <h2>Discreet. Pragmatic. Long-term.</h2>
+            <p class="muted">A founder-friendly approach to acquisition and continuity.</p>
           </div>
-          <a class="btn btn--primary" href="#contact">Request the deck</a>
+          <a class="btn btn--primary" href="#contact">Contact us</a>
         </div>
       </section>
     </main>
@@ -270,8 +385,8 @@
     <footer class="footer">
       <div class="container footer__inner">
         <div>
-          <div class="brand">MCP Capital</div>
-          <div class="small muted">Succession-first investing in European SMEs.</div>
+          <div class="brand-text">MCP Capital</div>
+          <div class="small muted">Long-term SME acquirer (Search Fund) in the Benelux.</div>
         </div>
         <div class="footer__links small">
           <a href="disclaimer.html">Disclaimer</a>
