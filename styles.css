@@ -342,7 +342,7 @@ p{margin:0 0 14px 0}
 
 /* Dividers: smoother transitions */
 .divider{
-  height:240px;
+  height: clamp(280px, 26vw, 460px);
   background-size:cover;
   background-position:center;
   position:relative;
