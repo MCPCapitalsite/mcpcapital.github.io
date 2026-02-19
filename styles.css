@@ -355,7 +355,7 @@ p{margin:0 0 14px 0}
     linear-gradient(0deg,   rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.00) 24%),
     linear-gradient(0deg, rgba(17,17,17,0.28), rgba(17,17,17,0.28));
 }
-.divider--mountains{background-image:url("assets/divider-mountains.png")}
+.divider--mountains{background-image:url("assets/divider-mountains.jpg")}
 .divider--sport{background-image:url("assets/divider-sport.jpg")}
 .divider--waves{background-image:url("assets/hero-waves.jpg")}
 
