@@ -1,14 +1,12 @@
 // Safe scroll-reveal:
-// - If JS fails: content should still be visible (handled by CSS change below)
-// - If "Reduce motion" is enabled: show content immediately
-
+// - Visible by default (CSS failsafe)
+// - Adds animations only if JS is running
 (() => {
   document.documentElement.classList.add("js");
 
   const els = document.querySelectorAll("[data-reveal]");
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // If user prefers reduced motion, just show everything (no animation).
   if (prefersReduced) {
     els.forEach((el) => el.classList.add("is-visible"));
     return;
