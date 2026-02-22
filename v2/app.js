@@ -1,4 +1,4 @@
-/* MCP Capital v2 — Futuristic interactions */
+/* MCP Capital v2 — Institutional finance interactions */
 (() => {
   'use strict';
 
@@ -16,7 +16,7 @@
     }, { passive: true });
   }
 
-  /* ── Custom cursor ────────────────────────────── */
+  /* ── Custom cursor (refined) ──────────────────── */
   function initCursor() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
@@ -34,8 +34,8 @@
     }, { passive: true });
 
     (function tickRing() {
-      rx += (mx - rx) * 0.13;
-      ry += (my - ry) * 0.13;
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
       ring.style.left = rx + 'px';
       ring.style.top  = ry + 'px';
       requestAnimationFrame(tickRing);
@@ -47,17 +47,20 @@
     });
   }
 
-  /* ── Hero canvas particles ────────────────────── */
+  /* ── Hero ambient particles (subtle, no network) ── */
   function initCanvas() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
 
     const canvas = document.createElement('canvas');
     canvas.className = 'hero__canvas';
-    hero.insertBefore(canvas, hero.firstChild);
-    const ctx = canvas.getContext('2d');
+    // Insert after the orb div if present, else first child
+    const orb = hero.querySelector('.hero__orb');
+    if (orb) orb.after(canvas);
+    else hero.insertBefore(canvas, hero.firstChild);
 
-    const N = 55, MAX = 140;
+    const ctx = canvas.getContext('2d');
+    const N = 22;
     let W, H, particles = [];
 
     function resize() {
@@ -69,85 +72,39 @@
 
     function rebuild() {
       particles = Array.from({ length: N }, () => ({
-        x:  Math.random() * W,
-        y:  Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        r:  Math.random() * 1.5 + 0.8,
-        o:  Math.random() * 0.4 + 0.2,
+        x:    Math.random() * W,
+        y:    Math.random() * H,
+        vx:   (Math.random() - 0.5) * 0.20,
+        vy:   (Math.random() - 0.5) * 0.20,
+        r:    Math.random() * 1.4 + 0.5,
+        base: Math.random() * 0.10 + 0.04,
+        phase: Math.random() * Math.PI * 2,
+        freq:  0.007 + Math.random() * 0.010,
       }));
     }
     rebuild();
 
-    // Mouse interaction
-    let mouse = { x: -9999, y: -9999 };
-    hero.addEventListener('mousemove', (e) => {
-      const r = hero.getBoundingClientRect();
-      mouse.x = e.clientX - r.left;
-      mouse.y = e.clientY - r.top;
-    }, { passive: true });
-    hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
-
     function draw() {
       ctx.clearRect(0, 0, W, H);
-
-      for (let i = 0; i < N; i++) {
-        const p = particles[i];
+      for (const p of particles) {
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > W) p.vx *= -1;
         if (p.y < 0 || p.y > H) p.vy *= -1;
+        p.phase += p.freq;
 
-        // Repel from mouse
-        const dx = p.x - mouse.x, dy = p.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 90) {
-          p.x += (dx / dist) * 1.4;
-          p.y += (dy / dist) * 1.4;
-        }
-
-        // Draw dot
+        const alpha = p.base + Math.sin(p.phase) * 0.04;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,255,136,${p.o})`;
+        ctx.fillStyle = `rgba(200, 169, 110, ${Math.max(0, alpha)})`;
         ctx.fill();
-
-        // Draw connections
-        for (let j = i + 1; j < N; j++) {
-          const q = particles[j];
-          const ddx = p.x - q.x, ddy = p.y - q.y;
-          const d = Math.sqrt(ddx * ddx + ddy * ddy);
-          if (d < MAX) {
-            const alpha = (1 - d / MAX) * 0.22;
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0,255,136,${alpha})`;
-            ctx.lineWidth = 0.7;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.stroke();
-          }
-        }
       }
       requestAnimationFrame(draw);
     }
     draw();
   }
 
-  /* ── Glitch on hero h1 ────────────────────────── */
-  function initGlitch() {
-    const h1 = document.querySelector('.hero h1');
-    if (!h1) return;
-    h1.setAttribute('data-text', h1.textContent);
-
-    function doGlitch() {
-      h1.classList.add('glitching');
-      setTimeout(() => h1.classList.remove('glitching'), 280);
-      setTimeout(doGlitch, 3200 + Math.random() * 5500);
-    }
-    setTimeout(doGlitch, 1800);
-  }
-
-  /* ── Text scramble ────────────────────────────── */
-  const CHARS = '!<>-_\\/[]{}=+*^?#01';
+  /* ── Text scramble (h2 decode on enter) ──────── */
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-–_';
 
   class TextScramble {
     constructor(el) {
@@ -165,8 +122,8 @@
         this.queue.push({
           from:  old[i] || '',
           to:    newText[i] || '',
-          start: Math.floor(Math.random() * 16),
-          end:   Math.floor(Math.random() * 16) + 18,
+          start: Math.floor(Math.random() * 14),
+          end:   Math.floor(Math.random() * 14) + 16,
           char:  '',
         });
       }
@@ -182,9 +139,8 @@
           done++;
           out += item.to;
         } else if (this.frame >= item.start) {
-          if (!item.char || Math.random() < 0.28) {
+          if (!item.char || Math.random() < 0.22)
             item.char = CHARS[Math.floor(Math.random() * CHARS.length)];
-          }
           out += `<span class="scramble-char">${item.char}</span>`;
         } else {
           out += item.from;
@@ -202,14 +158,12 @@
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
         io.unobserve(e.target);
-        // Delay slightly so the reveal animation starts first
         setTimeout(() => {
           const sc = new TextScramble(e.target);
           sc.setText(e.target.innerText);
-        }, 120);
+        }, 100);
       });
     }, { threshold: 0.5 });
-
     document.querySelectorAll('h2').forEach(el => io.observe(el));
   }
 
@@ -219,19 +173,18 @@
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
         io.unobserve(e.target);
-        const el = e.target;
-        const raw = el.textContent.trim();
-        const num = parseFloat(raw);
+        const el   = e.target;
+        const raw  = el.textContent.trim();
+        const num  = parseFloat(raw);
         if (isNaN(num)) return;
         const suffix = raw.replace(/[\d.]/g, '');
-        const dec = raw.includes('.') ? raw.split('.')[1].replace(/\D/g, '').length : 0;
-
+        const dec    = raw.includes('.') ? raw.split('.')[1]?.replace(/\D/g,'').length || 0 : 0;
         let start = null;
-        const dur = 1400;
+        const dur = 1600;
         const tick = (ts) => {
           if (!start) start = ts;
           const p = Math.min((ts - start) / dur, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
+          const eased = 1 - Math.pow(1 - p, 4); // quartic ease-out
           el.textContent = (eased * num).toFixed(dec) + suffix;
           if (p < 1) requestAnimationFrame(tick);
           else el.textContent = raw;
@@ -239,11 +192,10 @@
         requestAnimationFrame(tick);
       });
     }, { threshold: 0.7 });
-
     document.querySelectorAll('.stat-strip__value').forEach(el => io.observe(el));
   }
 
-  /* ── 3-D card tilt ────────────────────────────── */
+  /* ── 3D card tilt (subtle) ────────────────────── */
   function initTilt() {
     document.querySelectorAll('.card--hover').forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -251,24 +203,23 @@
         const dx = (e.clientX - r.left  - r.width  / 2) / r.width;
         const dy = (e.clientY - r.top   - r.height / 2) / r.height;
         card.style.transition = 'box-shadow .18s, border-color .18s';
-        card.style.transform  =
-          `perspective(700px) rotateX(${-dy * 9}deg) rotateY(${dx * 9}deg) translateY(-3px)`;
+        card.style.transform  = `perspective(900px) rotateX(${-dy * 5}deg) rotateY(${dx * 5}deg) translateY(-3px)`;
       });
       card.addEventListener('mouseleave', () => {
-        card.style.transition = 'transform .45s cubic-bezier(.23,1,.32,1), box-shadow .18s, border-color .18s';
+        card.style.transition = 'transform .5s cubic-bezier(.23,1,.32,1), box-shadow .18s, border-color .18s';
         card.style.transform  = '';
       });
     });
   }
 
-  /* ── Magnetic buttons ─────────────────────────── */
+  /* ── Magnetic buttons (very subtle) ──────────── */
   function initMagnetic() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
     document.querySelectorAll('.btn--primary').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const r  = btn.getBoundingClientRect();
-        const dx = (e.clientX - r.left - r.width  / 2) * 0.28;
-        const dy = (e.clientY - r.top  - r.height / 2) * 0.28;
+        const dx = (e.clientX - r.left - r.width  / 2) * 0.20;
+        const dy = (e.clientY - r.top  - r.height / 2) * 0.20;
         btn.style.transition = 'box-shadow .18s, background .12s, border-color .12s';
         btn.style.transform  = `translate(${dx}px, ${dy}px)`;
       });
@@ -288,8 +239,7 @@
         const r = div.getBoundingClientRect();
         if (r.bottom < 0 || r.top > vh) return;
         const progress = (vh - r.top) / (vh + r.height);
-        const offset = (progress - 0.5) * 70;
-        div.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+        div.style.backgroundPositionY = `calc(50% + ${(progress - 0.5) * 65}px)`;
       });
     }
     window.addEventListener('scroll', tick, { passive: true });
@@ -322,9 +272,10 @@
 
   /* ── Scroll reveal ────────────────────────────── */
   function initReveal() {
-    const attr = ['[data-reveal]', '[data-reveal-left]', '[data-reveal-right]', '[data-reveal-stagger]'];
-    const els  = document.querySelectorAll(attr.join(','));
-    const io   = new IntersectionObserver((entries) => {
+    const els = document.querySelectorAll(
+      '[data-reveal],[data-reveal-left],[data-reveal-right],[data-reveal-stagger]'
+    );
+    const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('is-visible');
@@ -347,41 +298,48 @@
     }, { passive: true });
   }
 
-  /* ── Hero label typing effect ─────────────────── */
+  /* ── Hero label typing ────────────────────────── */
   function initTyping() {
     const label = document.querySelector('.hero .label');
     if (!label) return;
     const text = label.textContent.trim();
     label.textContent = '';
-    label.style.borderRight = '2px solid rgba(0,255,136,.85)';
+    label.style.borderRight = '1px solid rgba(200,169,110,0.65)';
     label.style.paddingRight = '2px';
     let i = 0;
     const type = () => {
       if (i <= text.length) {
         label.textContent = text.slice(0, i++);
-        setTimeout(type, 36 + Math.random() * 22);
+        setTimeout(type, 38 + Math.random() * 20);
       } else {
-        // Blink cursor after done
         let on = true;
         setInterval(() => {
           label.style.borderRightColor = (on = !on)
-            ? 'rgba(0,255,136,.85)'
+            ? 'rgba(200,169,110,0.65)'
             : 'transparent';
-        }, 500);
+        }, 600);
       }
     };
-    setTimeout(type, 500);
+    setTimeout(type, 600);
+  }
+
+  /* ── Financial ticker ─────────────────────────── */
+  function initTicker() {
+    const ticker = document.querySelector('.ticker__track');
+    if (!ticker) return;
+    // Duplicate content for seamless infinite scroll
+    ticker.innerHTML += ticker.innerHTML;
   }
 
   /* ── Boot ─────────────────────────────────────── */
   initScrollProgress();
   initReveal();
   initNavScroll();
+  initTicker();
 
   if (!prefersReduced) {
     initCursor();
     initCanvas();
-    initGlitch();
     initScramble();
     initCounters();
     initTilt();

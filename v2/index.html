@@ -11,11 +11,11 @@
     <meta property="og:description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
     <meta property="og:type" content="website" />
 
-    <!-- Fonts: Space Grotesk + Inter + JetBrains Mono -->
+    <!-- Fonts: Cormorant Garamond (headings) + Inter (body) + DM Mono (labels) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
 
@@ -40,12 +40,12 @@
         </a>
 
         <nav class="menu" aria-label="Primary navigation">
-          <a href="#about">about</a>
-          <a href="#process">process</a>
-          <a href="#criteria">criteria</a>
-          <a href="#value">value</a>
-          <a href="#team">team</a>
-          <a href="#contact">contact</a>
+          <a href="#about">About</a>
+          <a href="#process">Process</a>
+          <a href="#criteria">Criteria</a>
+          <a href="#value">Value</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
         </nav>
 
         <a class="btn btn--primary" href="#contact">Contact us</a>
@@ -57,10 +57,12 @@
            HERO
            ════════════════════════════════ -->
       <section class="hero" aria-label="Hero">
-        <!-- canvas injected by JS -->
+        <!-- Ambient glow orb (CSS-animated) -->
+        <div class="hero__orb" aria-hidden="true"></div>
+        <!-- Canvas particles injected by JS -->
 
         <div class="container hero__content" data-reveal>
-          <span class="label">// MCP Capital · Search Fund · Benelux</span>
+          <span class="label">MCP Capital &nbsp;·&nbsp; Search Fund &nbsp;·&nbsp; Benelux</span>
 
           <h1>Long-term<br /><span>SME acquirer</span><br />Search Fund.</h1>
 
@@ -87,6 +89,24 @@
           <div class="hero__scroll-line"></div>
         </div>
       </section>
+
+      <!-- TICKER -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>Benelux SMEs</span>
+          <span>€1–5m Revenue</span>
+          <span>Operator-led</span>
+          <span>Long-term ownership</span>
+          <span>10+ year mindset</span>
+          <span>B2B Services</span>
+          <span>Healthcare &amp; Wellness</span>
+          <span>Majority acquisitions</span>
+          <span>Brussels, Belgium</span>
+          <span>Founder-friendly</span>
+          <span>Discreet process</span>
+          <span>Essential services</span>
+        </div>
+      </div>
 
       <!-- ════════════════════════════════
            ABOUT
@@ -144,7 +164,7 @@
                 </div>
               </div>
 
-              <div class="stat-strip" style="margin-top: 18px">
+              <div class="stat-strip">
                 <div class="stat-strip__item">
                   <span class="stat-strip__value">10+</span>
                   <div class="stat-strip__label">Year mindset</div>
@@ -226,17 +246,17 @@
 
           <div class="grid grid--3" data-reveal-stagger>
             <div class="card card--hover">
-              <div class="kpi__label" style="margin-bottom:8px">Revenue range</div>
+              <div class="kpi__label" style="margin-bottom:10px">Revenue range</div>
               <h3>€1–5m</h3>
               <p class="muted small">Annual recurring turnover</p>
             </div>
             <div class="card card--hover">
-              <div class="kpi__label" style="margin-bottom:8px">Geography</div>
+              <div class="kpi__label" style="margin-bottom:10px">Geography</div>
               <h3>Benelux</h3>
               <p class="muted small">Primary focus region</p>
             </div>
             <div class="card card--hover">
-              <div class="kpi__label" style="margin-bottom:8px">Business profile</div>
+              <div class="kpi__label" style="margin-bottom:10px">Business profile</div>
               <h3>Boring businesses</h3>
               <p class="muted small">Predictable, essential, resilient</p>
             </div>
@@ -269,17 +289,17 @@
 
           <div class="grid grid--3" data-reveal-stagger>
             <div class="card card--hover">
-              <div class="kpi__label" style="margin-bottom:8px">01</div>
+              <div class="kpi__label" style="margin-bottom:10px">01</div>
               <h3>Operational rigor</h3>
               <p class="muted">Execution rhythm, KPI discipline, practical operational improvement.</p>
             </div>
             <div class="card card--hover">
-              <div class="kpi__label" style="margin-bottom:8px">02</div>
+              <div class="kpi__label" style="margin-bottom:10px">02</div>
               <h3>Commercial focus</h3>
               <p class="muted">Selective growth initiatives, partnerships, and go-to-market refinement.</p>
             </div>
             <div class="card card--hover">
-              <div class="kpi__label" style="margin-bottom:8px">03</div>
+              <div class="kpi__label" style="margin-bottom:10px">03</div>
               <h3>Financing structure</h3>
               <p class="muted">Pragmatic structuring and lender access to support the right capital stack.</p>
             </div>
@@ -318,7 +338,7 @@
                 <div class="team-card__body">
                   <h3>Kevin Camps</h3>
                   <p>Managing Partner · Chief Human Resources Officer</p>
-                  <span class="team-card__hint">view bio</span>
+                  <span class="team-card__hint">View bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -332,7 +352,7 @@
                 <div class="team-card__body">
                   <h3>Jeremy Mestdagh</h3>
                   <p>Managing Partner · Head of Investment</p>
-                  <span class="team-card__hint">view bio</span>
+                  <span class="team-card__hint">View bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -346,7 +366,7 @@
                 <div class="team-card__body">
                   <h3>Emmanuel Piechowski</h3>
                   <p>Group CFO · Finance</p>
-                  <span class="team-card__hint">view bio</span>
+                  <span class="team-card__hint">View bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -360,7 +380,7 @@
                 <div class="team-card__body">
                   <h3>Giulio Monaco</h3>
                   <p>Associate</p>
-                  <span class="team-card__hint">view bio</span>
+                  <span class="team-card__hint">View bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -444,8 +464,8 @@
     <footer class="footer">
       <div class="container footer__inner">
         <div>
-          <div class="brand-text">MCP_CAPITAL</div>
-          <div class="footer__sub">Long-term SME acquirer (Search Fund) in the Benelux.</div>
+          <div class="brand-text">MCP Capital</div>
+          <div class="footer__sub">Long-term SME acquirer · Search Fund · Benelux</div>
         </div>
         <div class="footer__links">
           <a href="../disclaimer.html">Disclaimer</a>
