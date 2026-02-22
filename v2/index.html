@@ -11,7 +11,7 @@
     <meta property="og:description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
     <meta property="og:type" content="website" />
 
-    <!-- Fonts: Space Grotesk (headings) + Inter (body) + JetBrains Mono (labels) -->
+    <!-- Fonts: Space Grotesk + Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,7 +28,7 @@
       <div class="container nav__inner">
         <a class="brand" href="#top" aria-label="MCP Capital home">
           <picture>
-            <source srcset="../assets/brand/MCPLogo.png" type="image/svg+xml" />
+            <source srcset="../assets/brand/MCPLogo.png" type="image/png" />
             <img
               class="brand__logo"
               src="../assets/brand/MCPLogo.png"
@@ -53,11 +53,17 @@
     </header>
 
     <main id="top">
-      <!-- HERO -->
+      <!-- ════════════════════════════════
+           HERO
+           ════════════════════════════════ -->
       <section class="hero" aria-label="Hero">
+        <!-- canvas injected by JS -->
+
         <div class="container hero__content" data-reveal>
           <span class="label">// MCP Capital · Search Fund · Benelux</span>
+
           <h1>Long-term<br /><span>SME acquirer</span><br />Search Fund.</h1>
+
           <p>
             We partner with SME owners and operator-CEOs to execute acquisitions
             and build enduring businesses across the Benelux.
@@ -82,10 +88,12 @@
         </div>
       </section>
 
-      <!-- ABOUT -->
+      <!-- ════════════════════════════════
+           ABOUT
+           ════════════════════════════════ -->
       <section id="about" class="section">
-        <div class="container split" data-reveal>
-          <div>
+        <div class="container split">
+          <div data-reveal-left>
             <span class="section-tag">What we are</span>
             <h2>About MCP Capital</h2>
             <p>
@@ -97,7 +105,7 @@
               right leaders and a pragmatic execution model.
             </p>
 
-            <div class="what-grid">
+            <div class="what-grid" data-reveal-stagger>
               <div class="what-col">
                 <h3 class="h3-small">What we are</h3>
                 <ul class="bullets">
@@ -117,36 +125,38 @@
             </div>
           </div>
 
-          <div class="card card--accent">
-            <span class="section-tag">Positioning</span>
-            <h3>Strategic bridge</h3>
-            <p>
-              Between owners and CEOs: we identify strong SMEs and match them
-              with proven operators to drive long-term performance.
-            </p>
-            <div class="kpi">
-              <div>
-                <div class="kpi__label">Focus</div>
-                <div class="kpi__value">Benelux SMEs</div>
+          <div data-reveal-right>
+            <div class="card card--accent">
+              <span class="section-tag">Positioning</span>
+              <h3>Strategic bridge</h3>
+              <p>
+                Between owners and CEOs: we identify strong SMEs and match them
+                with proven operators to drive long-term performance.
+              </p>
+              <div class="kpi">
+                <div>
+                  <div class="kpi__label">Focus</div>
+                  <div class="kpi__value">Benelux SMEs</div>
+                </div>
+                <div>
+                  <div class="kpi__label">Model</div>
+                  <div class="kpi__value">Operator-led</div>
+                </div>
               </div>
-              <div>
-                <div class="kpi__label">Model</div>
-                <div class="kpi__value">Operator-led</div>
-              </div>
-            </div>
 
-            <div class="stat-strip" style="margin-top: 18px">
-              <div class="stat-strip__item">
-                <span class="stat-strip__value">10+</span>
-                <div class="stat-strip__label">Year mindset</div>
-              </div>
-              <div class="stat-strip__item">
-                <span class="stat-strip__value">51%+</span>
-                <div class="stat-strip__label">Majority stake</div>
-              </div>
-              <div class="stat-strip__item">
-                <span class="stat-strip__value">3</span>
-                <div class="stat-strip__label">Countries</div>
+              <div class="stat-strip" style="margin-top: 18px">
+                <div class="stat-strip__item">
+                  <span class="stat-strip__value">10+</span>
+                  <div class="stat-strip__label">Year mindset</div>
+                </div>
+                <div class="stat-strip__item">
+                  <span class="stat-strip__value">51%+</span>
+                  <div class="stat-strip__label">Majority stake</div>
+                </div>
+                <div class="stat-strip__item">
+                  <span class="stat-strip__value">3</span>
+                  <div class="stat-strip__label">Countries</div>
+                </div>
               </div>
             </div>
           </div>
@@ -156,7 +166,9 @@
       <!-- DIVIDER -->
       <section class="divider divider--mountains" aria-hidden="true"></section>
 
-      <!-- PROCESS -->
+      <!-- ════════════════════════════════
+           PROCESS
+           ════════════════════════════════ -->
       <section id="process" class="section section--soft">
         <div class="container" data-reveal>
           <span class="section-tag">How we work</span>
@@ -204,13 +216,15 @@
         </div>
       </section>
 
-      <!-- CRITERIA -->
+      <!-- ════════════════════════════════
+           CRITERIA
+           ════════════════════════════════ -->
       <section id="criteria" class="section">
         <div class="container" data-reveal>
           <span class="section-tag">Investment criteria</span>
           <h2>What we look for</h2>
 
-          <div class="grid grid--3">
+          <div class="grid grid--3" data-reveal-stagger>
             <div class="card card--hover">
               <div class="kpi__label" style="margin-bottom:8px">Revenue range</div>
               <h3>€1–5m</h3>
@@ -245,13 +259,15 @@
       <!-- DIVIDER -->
       <section class="divider divider--sport" aria-hidden="true"></section>
 
-      <!-- VALUE CREATION -->
+      <!-- ════════════════════════════════
+           VALUE CREATION
+           ════════════════════════════════ -->
       <section id="value" class="section section--soft">
         <div class="container" data-reveal>
           <span class="section-tag">Value creation</span>
           <h2>How we create value</h2>
 
-          <div class="grid grid--3">
+          <div class="grid grid--3" data-reveal-stagger>
             <div class="card card--hover">
               <div class="kpi__label" style="margin-bottom:8px">01</div>
               <h3>Operational rigor</h3>
@@ -269,7 +285,7 @@
             </div>
           </div>
 
-          <div class="split split--tight" style="margin-top: 16px">
+          <div class="split split--tight" style="margin-top: 18px" data-reveal-stagger>
             <div class="card card--hover">
               <span class="section-tag">For owners</span>
               <h3>Continuity &amp; discretion</h3>
@@ -286,14 +302,16 @@
         </div>
       </section>
 
-      <!-- TEAM -->
+      <!-- ════════════════════════════════
+           TEAM
+           ════════════════════════════════ -->
       <section id="team" class="section">
         <div class="container" data-reveal>
           <span class="section-tag">Team</span>
           <h2>The people</h2>
           <p class="muted">Standardized profiles. Proof-based bios. No filler.</p>
 
-          <div class="grid grid--team">
+          <div class="grid grid--team" data-reveal-stagger>
             <details class="card team-card">
               <summary class="team-card__summary">
                 <img class="avatar" src="../assets/team/kevin-camps.jpg" alt="Kevin Camps" loading="lazy" decoding="async" />
@@ -356,10 +374,12 @@
       <!-- DIVIDER -->
       <section class="divider divider--brussels" aria-hidden="true"></section>
 
-      <!-- CONTACT -->
+      <!-- ════════════════════════════════
+           CONTACT
+           ════════════════════════════════ -->
       <section id="contact" class="section">
-        <div class="container split" data-reveal>
-          <div>
+        <div class="container split">
+          <div data-reveal-left>
             <span class="section-tag">Get in touch</span>
             <h2>Contact</h2>
             <p>Succession opportunities, investor inquiries, or operator-CEO interest.</p>
@@ -372,7 +392,6 @@
                   <div class="muted small">info@mcpcapital.eu</div>
                 </div>
               </div>
-
               <div class="contactcard">
                 <span class="contactcard__icon">#</span>
                 <div>
@@ -380,7 +399,6 @@
                   <div class="muted small">Giulio Monaco · +32 (0)4 92 31 03 13</div>
                 </div>
               </div>
-
               <div class="contactcard">
                 <span class="contactcard__icon">⌖</span>
                 <div>
@@ -391,20 +409,22 @@
             </div>
           </div>
 
-          <div class="card">
-            <span class="section-tag">Send a message</span>
-            <h3>Open email client</h3>
-            <p class="muted small">Pre-filled with a structured template for faster replies.</p>
+          <div data-reveal-right>
+            <div class="card">
+              <span class="section-tag">Send a message</span>
+              <h3>Open email client</h3>
+              <p class="muted small">Pre-filled with a structured template for faster replies.</p>
 
-            <a
-              class="btn btn--primary"
-              href="mailto:info@mcpcapital.eu?subject=Introduction%20-%20MCP%20Capital&body=Hello%20MCP%20Capital%2C%0D%0A%0D%0AProfile%20(owner%2Finvestor%2Foperator)%3A%20%0D%0ACompany%3A%20%0D%0ALocation%3A%20%0D%0ATiming%3A%20%0D%0A%0D%0AMessage%3A%0D%0A%0D%0ARegards%2C"
-            >
-              Email MCP Capital
-            </a>
+              <a
+                class="btn btn--primary"
+                href="mailto:info@mcpcapital.eu?subject=Introduction%20-%20MCP%20Capital&body=Hello%20MCP%20Capital%2C%0D%0A%0D%0AProfile%20(owner%2Finvestor%2Foperator)%3A%20%0D%0ACompany%3A%20%0D%0ALocation%3A%20%0D%0ATiming%3A%20%0D%0A%0D%0AMessage%3A%0D%0A%0D%0ARegards%2C"
+              >
+                Email MCP Capital
+              </a>
 
-            <div style="height: 10px"></div>
-            <a class="btn btn--secondary" href="#top">↑ Back to top</a>
+              <div style="height: 10px"></div>
+              <a class="btn btn--secondary" href="#top">↑ Back to top</a>
+            </div>
           </div>
         </div>
       </section>
