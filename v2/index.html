@@ -6,16 +6,16 @@
     <title>MCP Capital</title>
     <meta name="description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
 
-    <!-- Open Graph (nice for sharing) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="MCP Capital" />
     <meta property="og:description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
     <meta property="og:type" content="website" />
 
-    <!-- Fonts: Cormorant Garamond (headings) + Inter (body) -->
+    <!-- Fonts: Space Grotesk (headings) + Inter (body) + JetBrains Mono (labels) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -28,10 +28,10 @@
       <div class="container nav__inner">
         <a class="brand" href="#top" aria-label="MCP Capital home">
           <picture>
-            <source srcset="assets/brand/MCPLogo.png" type="image/svg+xml" />
+            <source srcset="../assets/brand/MCPLogo.png" type="image/svg+xml" />
             <img
               class="brand__logo"
-              src="assets/brand/MCPLogo.png"
+              src="../assets/brand/MCPLogo.png"
               alt="MCP Capital"
               loading="eager"
               decoding="async"
@@ -40,12 +40,12 @@
         </a>
 
         <nav class="menu" aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#process">How we work</a>
-          <a href="#criteria">Criteria</a>
-          <a href="#value">Value creation</a>
-          <a href="#team">Team</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">about</a>
+          <a href="#process">process</a>
+          <a href="#criteria">criteria</a>
+          <a href="#value">value</a>
+          <a href="#team">team</a>
+          <a href="#contact">contact</a>
         </nav>
 
         <a class="btn btn--primary" href="#contact">Contact us</a>
@@ -56,10 +56,11 @@
       <!-- HERO -->
       <section class="hero" aria-label="Hero">
         <div class="container hero__content" data-reveal>
-          <h1>Long-term SME acquirer (Search Fund).</h1>
+          <span class="label">// MCP Capital · Search Fund · Benelux</span>
+          <h1>Long-term<br /><span>SME acquirer</span><br />Search Fund.</h1>
           <p>
-            We partner with SME owners and operator-CEOs to execute acquisitions and build enduring
-            businesses across the Benelux.
+            We partner with SME owners and operator-CEOs to execute acquisitions
+            and build enduring businesses across the Benelux.
           </p>
 
           <div class="hero__cta">
@@ -67,7 +68,6 @@
             <a class="btn btn--secondary" href="#process">How we work</a>
           </div>
 
-          <!-- Values: bigger + clickable -->
           <div class="values-mini" aria-label="Values">
             <a class="pill" href="#value">Long-term ownership</a>
             <a class="pill" href="#process">Operator-led</a>
@@ -75,13 +75,19 @@
             <a class="pill" href="#value">Responsible ownership</a>
           </div>
         </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span>scroll</span>
+          <div class="hero__scroll-line"></div>
+        </div>
       </section>
 
       <!-- ABOUT -->
       <section id="about" class="section">
         <div class="container split" data-reveal>
           <div>
-            <h2>What we are</h2>
+            <span class="section-tag">What we are</span>
+            <h2>About MCP Capital</h2>
             <p>
               MCP Capital is a Search Fund / long-term acquisition vehicle focused on majority
               acquisitions of high-quality SMEs.
@@ -104,7 +110,7 @@
                 <h3 class="h3-small">What we are not</h3>
                 <ul class="bullets">
                   <li>Not a broker / intermediary</li>
-                  <li>Not an opportunistic “flip” fund</li>
+                  <li>Not an opportunistic "flip" fund</li>
                   <li>Not a consulting firm</li>
                 </ul>
               </div>
@@ -112,9 +118,10 @@
           </div>
 
           <div class="card card--accent">
-            <h3>Positioning</h3>
+            <span class="section-tag">Positioning</span>
+            <h3>Strategic bridge</h3>
             <p>
-              A strategic bridge between owners and CEOs: we identify strong SMEs and match them
+              Between owners and CEOs: we identify strong SMEs and match them
               with proven operators to drive long-term performance.
             </p>
             <div class="kpi">
@@ -127,6 +134,21 @@
                 <div class="kpi__value">Operator-led</div>
               </div>
             </div>
+
+            <div class="stat-strip" style="margin-top: 18px">
+              <div class="stat-strip__item">
+                <span class="stat-strip__value">10+</span>
+                <div class="stat-strip__label">Year mindset</div>
+              </div>
+              <div class="stat-strip__item">
+                <span class="stat-strip__value">51%+</span>
+                <div class="stat-strip__label">Majority stake</div>
+              </div>
+              <div class="stat-strip__item">
+                <span class="stat-strip__value">3</span>
+                <div class="stat-strip__label">Countries</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -137,32 +159,32 @@
       <!-- PROCESS -->
       <section id="process" class="section section--soft">
         <div class="container" data-reveal>
-          <h2>How we work</h2>
+          <span class="section-tag">How we work</span>
+          <h2>Our process</h2>
           <p class="muted">
             The process is two-way: we select the right operator for the right business — and we
             select the right business for the right operator.
           </p>
 
-          <!-- Mirror layout: CEO -> Target AND Target -> CEO -->
           <div class="mirror">
             <div class="mirror__col">
               <div class="mirror__label">CEO → Target</div>
               <div class="mirror__card">
-                <h3 class="h3-small">Operator search & selection</h3>
+                <h3 class="h3-small">Operator search &amp; selection</h3>
                 <ul class="bullets">
                   <li>Define CEO profile and success criteria</li>
-                  <li>Source & vet candidates (structured assessment)</li>
+                  <li>Source &amp; vet candidates (structured assessment)</li>
                   <li>Shortlist with evidence-based screening</li>
                 </ul>
               </div>
             </div>
 
-            <div class="mirror__arrow" aria-hidden="true">↔</div>
+            <div class="mirror__arrow" aria-hidden="true">⇄</div>
 
             <div class="mirror__col">
               <div class="mirror__label">Target → CEO</div>
               <div class="mirror__card">
-                <h3 class="h3-small">Matching & integration</h3>
+                <h3 class="h3-small">Matching &amp; integration</h3>
                 <ul class="bullets">
                   <li>Match operator strengths to business needs</li>
                   <li>Align incentives (meaningful equity)</li>
@@ -185,33 +207,37 @@
       <!-- CRITERIA -->
       <section id="criteria" class="section">
         <div class="container" data-reveal>
-          <h2>Investment criteria</h2>
+          <span class="section-tag">Investment criteria</span>
+          <h2>What we look for</h2>
 
           <div class="grid grid--3">
-            <div class="card">
-              <h3>Revenue</h3>
-              <p>€1–5m</p>
+            <div class="card card--hover">
+              <div class="kpi__label" style="margin-bottom:8px">Revenue range</div>
+              <h3>€1–5m</h3>
+              <p class="muted small">Annual recurring turnover</p>
             </div>
-            <div class="card">
-              <h3>Geography</h3>
-              <p>Benelux (focus)</p>
+            <div class="card card--hover">
+              <div class="kpi__label" style="margin-bottom:8px">Geography</div>
+              <h3>Benelux</h3>
+              <p class="muted small">Primary focus region</p>
             </div>
-            <div class="card">
+            <div class="card card--hover">
+              <div class="kpi__label" style="margin-bottom:8px">Business profile</div>
               <h3>Boring businesses</h3>
-              <p>Predictable, essential, resilient</p>
+              <p class="muted small">Predictable, essential, resilient</p>
             </div>
           </div>
 
-          <div class="card" style="margin-top:16px">
-            <h3>Sectors (focus)</h3>
-            <p class="muted" style="margin:0">
-              B2B Services • Healthcare & Wellness • Essential / non-cyclical SME services
+          <div class="card" style="margin-top: 16px">
+            <span class="section-tag">Sectors</span>
+            <p class="muted" style="margin: 0">
+              B2B Services &nbsp;·&nbsp; Healthcare &amp; Wellness &nbsp;·&nbsp; Essential / non-cyclical SME services
             </p>
           </div>
 
           <div class="note">
             <span class="note__dot"></span>
-            We prioritize clarity, resilience, and operational simplicity over “story stocks.”
+            We prioritize clarity, resilience, and operational simplicity over "story stocks."
           </div>
         </div>
       </section>
@@ -222,33 +248,39 @@
       <!-- VALUE CREATION -->
       <section id="value" class="section section--soft">
         <div class="container" data-reveal>
-          <h2>Value creation</h2>
+          <span class="section-tag">Value creation</span>
+          <h2>How we create value</h2>
 
           <div class="grid grid--3">
             <div class="card card--hover">
+              <div class="kpi__label" style="margin-bottom:8px">01</div>
               <h3>Operational rigor</h3>
-              <p>Execution rhythm, KPI discipline, practical operational improvement.</p>
+              <p class="muted">Execution rhythm, KPI discipline, practical operational improvement.</p>
             </div>
             <div class="card card--hover">
+              <div class="kpi__label" style="margin-bottom:8px">02</div>
               <h3>Commercial focus</h3>
-              <p>Selective growth initiatives, partnerships, and go-to-market refinement.</p>
+              <p class="muted">Selective growth initiatives, partnerships, and go-to-market refinement.</p>
             </div>
             <div class="card card--hover">
+              <div class="kpi__label" style="margin-bottom:8px">03</div>
               <h3>Financing structure</h3>
-              <p>Pragmatic structuring and lender access to support the right capital stack.</p>
+              <p class="muted">Pragmatic structuring and lender access to support the right capital stack.</p>
             </div>
           </div>
 
-          <div class="split split--tight" style="margin-top:18px">
+          <div class="split split--tight" style="margin-top: 16px">
             <div class="card card--hover">
-              <h3>For owners</h3>
-              <p>Continuity, discretion, and a founder-friendly succession process.</p>
-              <a class="link" href="#contact">Discuss your situation</a>
+              <span class="section-tag">For owners</span>
+              <h3>Continuity &amp; discretion</h3>
+              <p class="muted">A founder-friendly succession process that respects your legacy.</p>
+              <a class="link" href="#contact">Discuss your situation →</a>
             </div>
             <div class="card card--hover">
-              <h3>For operators / CEOs</h3>
-              <p>Meaningful equity, clear governance, and operational autonomy.</p>
-              <a class="link" href="#contact">Get in touch</a>
+              <span class="section-tag">For operators / CEOs</span>
+              <h3>Equity &amp; autonomy</h3>
+              <p class="muted">Meaningful equity, clear governance, and operational autonomy.</p>
+              <a class="link" href="#contact">Get in touch →</a>
             </div>
           </div>
         </div>
@@ -257,17 +289,18 @@
       <!-- TEAM -->
       <section id="team" class="section">
         <div class="container" data-reveal>
-          <h2>Team</h2>
+          <span class="section-tag">Team</span>
+          <h2>The people</h2>
           <p class="muted">Standardized profiles. Proof-based bios. No filler.</p>
 
           <div class="grid grid--team">
             <details class="card team-card">
               <summary class="team-card__summary">
-                <img class="avatar" src="assets/team/kevin-camps.jpg" alt="Kevin Camps" loading="lazy" decoding="async" />
+                <img class="avatar" src="../assets/team/kevin-camps.jpg" alt="Kevin Camps" loading="lazy" decoding="async" />
                 <div class="team-card__body">
                   <h3>Kevin Camps</h3>
-                  <p>Managing Partner • Chief Human Resources Officer</p>
-                  <span class="team-card__hint">View bio</span>
+                  <p>Managing Partner · Chief Human Resources Officer</p>
+                  <span class="team-card__hint">view bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -277,11 +310,11 @@
 
             <details class="card team-card">
               <summary class="team-card__summary">
-                <img class="avatar" src="assets/team/jeremy-temp.jpg" alt="Jeremy Mestdagh" loading="lazy" decoding="async" />
+                <img class="avatar" src="../assets/team/jeremy-temp.jpg" alt="Jeremy Mestdagh" loading="lazy" decoding="async" />
                 <div class="team-card__body">
                   <h3>Jeremy Mestdagh</h3>
-                  <p>Managing Partner • Head of Investment</p>
-                  <span class="team-card__hint">View bio</span>
+                  <p>Managing Partner · Head of Investment</p>
+                  <span class="team-card__hint">view bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -291,11 +324,11 @@
 
             <details class="card team-card">
               <summary class="team-card__summary">
-                <img class="avatar" src="assets/team/emmanuel-piechowski.jpg" alt="Emmanuel Piechowski" loading="lazy" decoding="async" />
+                <img class="avatar" src="../assets/team/emmanuel-piechowski.jpg" alt="Emmanuel Piechowski" loading="lazy" decoding="async" />
                 <div class="team-card__body">
                   <h3>Emmanuel Piechowski</h3>
-                  <p>Group CFO • Finance</p>
-                  <span class="team-card__hint">View bio</span>
+                  <p>Group CFO · Finance</p>
+                  <span class="team-card__hint">view bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -305,11 +338,11 @@
 
             <details class="card team-card">
               <summary class="team-card__summary">
-                <img class="avatar" src="assets/team/giulio-monaco.jpg" alt="Giulio Monaco" loading="lazy" decoding="async" />
+                <img class="avatar" src="../assets/team/giulio-monaco.jpg" alt="Giulio Monaco" loading="lazy" decoding="async" />
                 <div class="team-card__body">
                   <h3>Giulio Monaco</h3>
                   <p>Associate</p>
-                  <span class="team-card__hint">View bio</span>
+                  <span class="team-card__hint">view bio</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -320,41 +353,48 @@
         </div>
       </section>
 
-      <!-- DIVIDER (coherent: waves, not “arc/monument”) -->
+      <!-- DIVIDER -->
       <section class="divider divider--brussels" aria-hidden="true"></section>
 
       <!-- CONTACT -->
       <section id="contact" class="section">
         <div class="container split" data-reveal>
           <div>
+            <span class="section-tag">Get in touch</span>
             <h2>Contact</h2>
             <p>Succession opportunities, investor inquiries, or operator-CEO interest.</p>
 
             <div class="contactcards">
               <div class="contactcard">
-                <div class="contactcard__title">Email</div>
-                <div class="muted">info@mcpcapital.eu</div>
+                <span class="contactcard__icon">@</span>
+                <div>
+                  <div class="contactcard__title">Email</div>
+                  <div class="muted small">info@mcpcapital.eu</div>
+                </div>
               </div>
 
               <div class="contactcard">
-                <div class="contactcard__title">Phone</div>
-                <div class="muted">Giulio Monaco • +32 (0)4 92 31 03 13</div>
+                <span class="contactcard__icon">#</span>
+                <div>
+                  <div class="contactcard__title">Phone</div>
+                  <div class="muted small">Giulio Monaco · +32 (0)4 92 31 03 13</div>
+                </div>
               </div>
 
               <div class="contactcard">
-                <div class="contactcard__title">Location</div>
-                <div class="muted">Brussels, Belgium</div>
+                <span class="contactcard__icon">⌖</span>
+                <div>
+                  <div class="contactcard__title">Location</div>
+                  <div class="muted small">Brussels, Belgium</div>
+                </div>
               </div>
             </div>
-
-            <p class="small muted">
-              V1: no public deck. If needed later, we can add gated forms (Owner vs Operator) while staying on GitHub Pages.
-            </p>
           </div>
 
           <div class="card">
-            <h3>Send a message</h3>
-            <p class="muted small">This opens your email client with a structured template.</p>
+            <span class="section-tag">Send a message</span>
+            <h3>Open email client</h3>
+            <p class="muted small">Pre-filled with a structured template for faster replies.</p>
 
             <a
               class="btn btn--primary"
@@ -364,8 +404,7 @@
             </a>
 
             <div style="height: 10px"></div>
-
-            <a class="btn btn--secondary" href="#top">Back to top</a>
+            <a class="btn btn--secondary" href="#top">↑ Back to top</a>
           </div>
         </div>
       </section>
@@ -385,14 +424,14 @@
     <footer class="footer">
       <div class="container footer__inner">
         <div>
-          <div class="brand-text">MCP Capital</div>
-          <div class="small muted">Long-term SME acquirer (Search Fund) in the Benelux.</div>
+          <div class="brand-text">MCP_CAPITAL</div>
+          <div class="footer__sub">Long-term SME acquirer (Search Fund) in the Benelux.</div>
         </div>
-        <div class="footer__links small">
-          <a href="disclaimer.html">Disclaimer</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="cookies.html">Cookies</a>
-          <a href="v2/index.html">v2 →</a>
+        <div class="footer__links">
+          <a href="../disclaimer.html">Disclaimer</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../cookies.html">Cookies</a>
+          <a href="../index.html">← v1</a>
         </div>
       </div>
     </footer>
