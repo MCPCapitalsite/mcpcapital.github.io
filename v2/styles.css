@@ -521,7 +521,7 @@ p { margin: 0 0 14px 0 }
 }
 .divider--mountains { background-image: url("../assets/divider-mountains.jpg") }
 .divider--sport     { background-image: url("../assets/divider-sport.jpg") }
-.divider--trail     { background-image: url("../assets/divider-trail.jpg") }
+.divider--brussels  { background-image: url("../assets/divider-brussels.jpg") }
 
 /* ── Team ────────────────────────────────────────── */
 .team-card { padding: 0; overflow: hidden }
