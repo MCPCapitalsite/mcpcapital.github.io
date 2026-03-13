@@ -380,11 +380,10 @@ p{margin:0 0 14px 0}
 }
 .avatar{
   width:74px; height:74px;
-  border-radius:16px;
+  border-radius:50%;
   object-fit:cover;
-  border:1px solid rgba(17,17,17,0.10);
-  box-shadow:0 8px 18px rgba(17,17,17,0.06);
   filter: grayscale(100%) contrast(1.05);
+  flex-shrink:0;
 }
 .team-bio{
   padding:0 18px 18px 18px;
@@ -445,5 +444,67 @@ p{margin:0 0 14px 0}
 
 /* Reveal (failsafe) */
 [data-reveal]{opacity:1; transform:none}
-.js [data-reveal]{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
+.js [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1)}
 .js [data-reveal].is-visible{opacity:1; transform:none}
+
+/* ── Scroll progress bar ── */
+#scroll-progress{
+  position:fixed; top:0; left:0; z-index:200;
+  height:3px; width:0;
+  background: linear-gradient(90deg, var(--green), rgba(31,77,58,0.5));
+  border-radius:0 2px 2px 0;
+  transition:width .08s linear;
+  pointer-events:none;
+}
+
+/* ── Nav shrink on scroll ── */
+.nav--scrolled{
+  background:rgba(255,255,255,0.97);
+  box-shadow:0 2px 18px rgba(17,17,17,0.08);
+}
+.nav--scrolled .nav__inner{height:62px; transition:height .25s ease}
+.nav__inner{transition:height .25s ease}
+
+/* ── Active nav link ── */
+.menu a.active{color:var(--text)}
+.menu a.active::after{background:rgba(31,77,58,0.65)}
+
+/* ── h2 underline draw animation ── */
+.js h2::after{
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+}
+.js .h2-drawn::after{transform:scaleX(1)}
+
+/* ── Stagger reveal ── */
+@keyframes staggerFadeUp{
+  from{opacity:0; transform:translateY(18px)}
+  to  {opacity:1; transform:none}
+}
+.js .stagger-child{opacity:0}
+.js .stagger-child.stagger-visible{
+  animation: staggerFadeUp .5s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* ── Timeline active step ── */
+.timeline li{transition:border-color .3s ease, box-shadow .3s ease}
+.timeline li.tl-active{
+  border-color:rgba(31,77,58,0.35);
+  box-shadow:0 4px 20px rgba(31,77,58,0.08);
+}
+.timeline li.tl-active::before{opacity:1}
+.timeline li::before{transition:opacity .3s ease; opacity:0.4}
+
+/* ── Boring tag ── */
+.boring-tag{
+  display:inline-block;
+  font-size:11px;
+  font-style:italic;
+  color:var(--green);
+  border:1px solid rgba(31,77,58,0.28);
+  border-radius:999px;
+  padding:3px 10px;
+  margin-top:6px;
+  letter-spacing:0.3px;
+}
