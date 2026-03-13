@@ -241,7 +241,34 @@
     drawParticles();
   }
 
-  // ── 15. Hero overline + h1 word reveal ───────────────────────────────────
+  // ── 15. Criteria section mouse-following glow ───────────────────────────
+  const criteriaSection = document.querySelector('#criteria');
+  if (criteriaSection) {
+    const glow = document.createElement('div');
+    glow.className = 'criteria-glow';
+    criteriaSection.appendChild(glow);
+
+    let cx = -800, cy = -800, tx = -800, ty = -800;
+    let inside = false;
+
+    criteriaSection.addEventListener('mouseenter', () => { inside = true; glow.style.opacity = '1'; });
+    criteriaSection.addEventListener('mouseleave', () => { inside = false; glow.style.opacity = '0'; });
+    criteriaSection.addEventListener('mousemove', e => {
+      const r = criteriaSection.getBoundingClientRect();
+      tx = e.clientX - r.left;
+      ty = e.clientY - r.top;
+    });
+
+    (function animateGlow() {
+      cx += (tx - cx) * 0.09;
+      cy += (ty - cy) * 0.09;
+      glow.style.left = cx + 'px';
+      glow.style.top  = cy + 'px';
+      requestAnimationFrame(animateGlow);
+    })();
+  }
+
+  // ── 16. h1 word reveal ───────────────────────────────────────────────────
   const h1 = document.querySelector('.hero__h1');
   if (h1) {
     const words = h1.innerHTML.replace('<br>', ' ‖ ').split(' ');
