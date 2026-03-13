@@ -14,7 +14,7 @@
           io.unobserve(e.target);
         }
       }
-    }, { threshold: 0.08 });
+    }, { threshold: 0.07 });
     revealEls.forEach(el => io.observe(el));
   }
 
@@ -28,23 +28,26 @@
     '.timeline > li',
     '.split--tight > *',
     '.contactcards > *',
+    '.stats-strip .stat',
   ].join(', ');
 
   document.querySelectorAll(STAGGER_SEL).forEach(el => el.classList.add('stagger-child'));
+  // slide-from-left for section labels
+  document.querySelectorAll('.section-label').forEach(el => el.classList.add('slide-left'));
 
   const staggerObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      const children = e.target.querySelectorAll('.stagger-child:not(.stagger-visible)');
+      const children = e.target.querySelectorAll('.stagger-child:not(.stagger-visible), .slide-left:not(.stagger-visible)');
       children.forEach((child, i) => {
-        child.style.animationDelay = `${i * 90}ms`;
+        child.style.animationDelay = `${i * 85}ms`;
         child.classList.add('stagger-visible');
       });
       staggerObs.unobserve(e.target);
     });
-  }, { threshold: 0.07 });
+  }, { threshold: 0.06 });
 
-  document.querySelectorAll('.section, .hero').forEach(s => staggerObs.observe(s));
+  document.querySelectorAll('.section, .hero, .stats-strip').forEach(s => staggerObs.observe(s));
 
   // ── 3. Parallax dividers ─────────────────────────────────────────────────
   const dividers = document.querySelectorAll('.divider');
@@ -69,10 +72,11 @@
   bar.id = 'scroll-progress';
   document.body.appendChild(bar);
 
-  window.addEventListener('scroll', () => {
+  function updateBar() {
     const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
     bar.style.width = Math.min(pct, 100) + '%';
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', updateBar, { passive: true });
 
   // ── 5. Active nav highlight ──────────────────────────────────────────────
   const sections = document.querySelectorAll('section[id]');
@@ -84,60 +88,172 @@
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
     });
   }, { rootMargin: '-35% 0px -60% 0px' });
-
   sections.forEach(s => navObs.observe(s));
 
-  // ── 6. 3D card tilt on hover ─────────────────────────────────────────────
+  // ── 6. Nav shrink ────────────────────────────────────────────────────────
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('nav--scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── 7. 3D card tilt ──────────────────────────────────────────────────────
   document.querySelectorAll('.card--hover').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
-      const y = ((e.clientY - r.top) / r.height - 0.5) * -10;
-      card.style.transform = `perspective(700px) translateY(-3px) rotateX(${y}deg) rotateY(${x}deg)`;
+      const x = ((e.clientX - r.left) / r.width - 0.5) * 8;
+      const y = ((e.clientY - r.top) / r.height - 0.5) * -8;
+      card.style.transform = `perspective(800px) translateY(-3px) rotateX(${y}deg) rotateY(${x}deg)`;
       card.style.transition = 'transform .06s ease';
     });
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
-      card.style.transition = 'transform .35s ease, border-color .12s ease, box-shadow .12s ease';
+      card.style.transition = 'transform .4s ease, border-color .18s ease, box-shadow .18s ease';
     });
   });
 
-  // ── 7. h2 underline draw on scroll ──────────────────────────────────────
+  // ── 8. h2 underline draw ─────────────────────────────────────────────────
   const h2Obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('h2-drawn'); h2Obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('h2').forEach(h => h2Obs.observe(h));
+
+  // ── 9. Pill entrance ─────────────────────────────────────────────────────
+  document.querySelectorAll('.pill').forEach((pill, i) => {
+    pill.style.opacity = '0';
+    pill.style.transform = 'translateY(10px)';
+    setTimeout(() => {
+      pill.style.transition = 'opacity .45s ease, transform .45s ease, border-color .15s ease';
+      pill.style.opacity = '1';
+      pill.style.transform = '';
+    }, 700 + i * 110);
+  });
+
+  // ── 10. Timeline highlight ───────────────────────────────────────────────
+  const tlObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('tl-active'); });
+  }, { threshold: 0.65 });
+  document.querySelectorAll('.timeline li').forEach(li => tlObs.observe(li));
+
+  // ── 11. Count-up animation ───────────────────────────────────────────────
+  function countUp(el) {
+    const target = parseInt(el.dataset.count);
+    if (isNaN(target)) return;
+    const duration = 1200;
+    let start = null;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add('h2-drawn');
-        h2Obs.unobserve(e.target);
+        e.target.querySelectorAll('[data-count]').forEach(countUp);
+        countObs.unobserve(e.target);
       }
     });
   }, { threshold: 0.5 });
+  document.querySelectorAll('.stats-strip, .kpi').forEach(el => countObs.observe(el));
 
-  document.querySelectorAll('h2').forEach(h => h2Obs.observe(h));
-
-  // ── 8. Nav shrink on scroll ──────────────────────────────────────────────
-  const nav = document.querySelector('.nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('nav--scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  // ── 9. Pill stagger on hero load ─────────────────────────────────────────
-  document.querySelectorAll('.pill').forEach((pill, i) => {
-    pill.style.opacity = '0';
-    pill.style.transform = 'translateY(8px)';
-    setTimeout(() => {
-      pill.style.transition = 'opacity .4s ease, transform .4s ease';
-      pill.style.opacity = '1';
-      pill.style.transform = '';
-    }, 600 + i * 100);
+  // ── 12. Magnetic buttons ─────────────────────────────────────────────────
+  document.querySelectorAll('.btn--glow, .btn--primary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * 0.25;
+      const y = (e.clientY - r.top - r.height / 2) * 0.25;
+      btn.style.transform = `translate(${x}px, ${y}px) translateY(-1px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform .4s cubic-bezier(.22,1,.36,1), box-shadow .2s ease';
+    });
   });
 
-  // ── 10. Timeline step highlight on scroll ────────────────────────────────
-  const timelineObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('tl-active');
+  // ── 13. Button ripple ────────────────────────────────────────────────────
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const r = btn.getBoundingClientRect();
+      const size = Math.max(r.width, r.height) * 2;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px`;
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
     });
-  }, { threshold: 0.7 });
+  });
 
-  document.querySelectorAll('.timeline li').forEach(li => timelineObs.observe(li));
+  // ── 14. Hero floating particles (canvas) ────────────────────────────────
+  const canvas = document.createElement('canvas');
+  const particlesEl = document.querySelector('.hero__particles');
+  if (particlesEl) {
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+    particlesEl.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const particles = [];
+    const N = 40;
+
+    function resize() {
+      canvas.width = particlesEl.offsetWidth;
+      canvas.height = particlesEl.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    for (let i = 0; i < N; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: -(Math.random() * 0.4 + 0.1),
+        a: Math.random(),
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.a * 0.4})`;
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.y < -4) { p.y = canvas.height + 4; p.x = Math.random() * canvas.width; }
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+  }
+
+  // ── 15. Hero overline + h1 word reveal ───────────────────────────────────
+  const h1 = document.querySelector('.hero__h1');
+  if (h1) {
+    const words = h1.innerHTML.replace('<br>', ' ‖ ').split(' ');
+    h1.innerHTML = words.map(w => {
+      if (w === '‖') return '<br>';
+      return `<span class="word-wrap" style="display:inline-block;overflow:hidden;vertical-align:bottom"><span class="word" style="display:inline-block">${w}</span></span>`;
+    }).join(' ');
+
+    setTimeout(() => {
+      h1.querySelectorAll('.word').forEach((w, i) => {
+        w.style.transform = 'translateY(110%)';
+        setTimeout(() => {
+          w.style.transition = 'transform .65s cubic-bezier(.22,1,.36,1)';
+          w.style.transform = '';
+        }, 80 + i * 90);
+      });
+    }, 100);
+  }
 
 })();

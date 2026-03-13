@@ -5,20 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MCP Capital</title>
     <meta name="description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
-
-    <!-- Open Graph (nice for sharing) -->
     <meta property="og:title" content="MCP Capital" />
     <meta property="og:description" content="Long-term SME acquirer (Search Fund) in the Benelux." />
     <meta property="og:type" content="website" />
-
-    <!-- Fonts: Cormorant Garamond (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -29,13 +21,7 @@
         <a class="brand" href="#top" aria-label="MCP Capital home">
           <picture>
             <source srcset="assets/brand/MCPLogo.png" type="image/svg+xml" />
-            <img
-              class="brand__logo"
-              src="assets/brand/MCPLogo.png"
-              alt="MCP Capital"
-              loading="eager"
-              decoding="async"
-            />
+            <img class="brand__logo" src="assets/brand/MCPLogo.png" alt="MCP Capital" loading="eager" decoding="async" />
           </picture>
         </a>
 
@@ -55,19 +41,20 @@
     <main id="top">
       <!-- HERO -->
       <section class="hero" aria-label="Hero">
+        <div class="hero__particles" aria-hidden="true"></div>
         <div class="container hero__content" data-reveal>
-          <h1>Long-term SME acquirer (Search Fund).</h1>
+          <p class="hero__overline">Search Fund · Benelux</p>
+          <h1 class="hero__h1">Long-term SME<br>acquirer.</h1>
           <p>
             We partner with SME owners and operator-CEOs to execute acquisitions and build enduring
             businesses across the Benelux.
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#contact">Contact us</a>
-            <a class="btn btn--secondary" href="#process">How we work</a>
+            <a class="btn btn--primary btn--glow" href="#contact">Contact us</a>
+            <a class="btn btn--ghost" href="#process">How we work ↓</a>
           </div>
 
-          <!-- Values: bigger + clickable -->
           <div class="values-mini" aria-label="Values">
             <a class="pill" href="#value">Long-term ownership</a>
             <a class="pill" href="#process">Operator-led</a>
@@ -75,12 +62,41 @@
             <a class="pill" href="#value">Responsible ownership</a>
           </div>
         </div>
+        <div class="hero__scroll-indicator" aria-hidden="true">
+          <span></span>
+        </div>
       </section>
+
+      <!-- STATS STRIP -->
+      <div class="stats-strip">
+        <div class="container stats-strip__inner">
+          <div class="stat">
+            <div class="stat__num"><span data-count="10">10</span>+</div>
+            <div class="stat__label">Year ownership mindset</div>
+          </div>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat">
+            <div class="stat__num">€1–5M</div>
+            <div class="stat__label">Target revenue range</div>
+          </div>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat">
+            <div class="stat__num">Benelux</div>
+            <div class="stat__label">Primary focus region</div>
+          </div>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat">
+            <div class="stat__num"><span data-count="90">90</span>-day</div>
+            <div class="stat__label">Post-acquisition plan</div>
+          </div>
+        </div>
+      </div>
 
       <!-- ABOUT -->
       <section id="about" class="section">
         <div class="container split" data-reveal>
           <div>
+            <p class="section-label">About MCP Capital</p>
             <h2>What we are</h2>
             <p>
               MCP Capital is a Search Fund / long-term acquisition vehicle focused on majority
@@ -93,7 +109,10 @@
 
             <div class="what-grid">
               <div class="what-col">
-                <h3 class="h3-small">What we are</h3>
+                <h3 class="h3-small">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  What we are
+                </h3>
                 <ul class="bullets">
                   <li>Long-term owner (10+ year mindset)</li>
                   <li>Majority acquirer (control where needed)</li>
@@ -101,17 +120,20 @@
                 </ul>
               </div>
               <div class="what-col">
-                <h3 class="h3-small">What we are not</h3>
+                <h3 class="h3-small">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  What we are not
+                </h3>
                 <ul class="bullets">
                   <li>Not a broker / intermediary</li>
-                  <li>Not an opportunistic “flip” fund</li>
+                  <li>Not an opportunistic "flip" fund</li>
                   <li>Not a consulting firm</li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div class="card card--accent">
+          <div class="card card--accent card--hover">
             <h3>Positioning</h3>
             <p>
               A strategic bridge between owners and CEOs: we identify strong SMEs and match them
@@ -137,32 +159,40 @@
       <!-- PROCESS -->
       <section id="process" class="section section--soft">
         <div class="container" data-reveal>
+          <p class="section-label">Our Approach</p>
           <h2>How we work</h2>
           <p class="muted">
             The process is two-way: we select the right operator for the right business — and we
             select the right business for the right operator.
           </p>
 
-          <!-- Mirror layout: CEO -> Target AND Target -> CEO -->
           <div class="mirror">
             <div class="mirror__col">
               <div class="mirror__label">CEO → Target</div>
               <div class="mirror__card">
-                <h3 class="h3-small">Operator search & selection</h3>
+                <div class="card-icon card-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3 class="h3-small">Operator search &amp; selection</h3>
                 <ul class="bullets">
                   <li>Define CEO profile and success criteria</li>
-                  <li>Source & vet candidates (structured assessment)</li>
+                  <li>Source &amp; vet candidates (structured assessment)</li>
                   <li>Shortlist with evidence-based screening</li>
                 </ul>
               </div>
             </div>
 
-            <div class="mirror__arrow" aria-hidden="true">↔</div>
+            <div class="mirror__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
 
             <div class="mirror__col">
               <div class="mirror__label">Target → CEO</div>
               <div class="mirror__card">
-                <h3 class="h3-small">Matching & integration</h3>
+                <div class="card-icon card-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                </div>
+                <h3 class="h3-small">Matching &amp; integration</h3>
                 <ul class="bullets">
                   <li>Match operator strengths to business needs</li>
                   <li>Align incentives (meaningful equity)</li>
@@ -185,34 +215,51 @@
       <!-- CRITERIA -->
       <section id="criteria" class="section">
         <div class="container" data-reveal>
+          <p class="section-label">What We Look For</p>
           <h2>Investment criteria</h2>
 
           <div class="grid grid--3">
-            <div class="card">
+            <div class="card card--hover">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9.5c-.8-.8-2-1.5-3-1.5-2.2 0-4 2-4 4s1.8 4 4 4c1 0 2.2-.7 3-1.5"/><path d="M6 11h7M6 14h7"/></svg>
+              </div>
               <h3>Revenue</h3>
               <p>€1–5m</p>
             </div>
-            <div class="card">
+            <div class="card card--hover">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
               <h3>Geography</h3>
               <p>Benelux (focus)</p>
             </div>
-            <div class="card">
-              <h3>Boring businesses</h3>
+            <div class="card card--hover">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="card-title-row">
+                <h3>Boring businesses</h3>
+                <span class="boring-tag">boring is the new sexy</span>
+              </div>
               <p>Predictable, essential, resilient</p>
-              <span class="boring-tag">boring is the new sexy</span>
             </div>
           </div>
 
-          <div class="card" style="margin-top:16px">
-            <h3>Sectors (focus)</h3>
-            <p class="muted" style="margin:0">
-              Services · Industries · Consumers
-            </p>
+          <div class="card sectors-card" style="margin-top:16px">
+            <div class="sectors-card__inner">
+              <div class="card-icon card-icon--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <div>
+                <h3>Sectors (focus)</h3>
+                <p class="muted" style="margin:0">Services · Industries · Consumers</p>
+              </div>
+            </div>
           </div>
 
           <div class="note">
             <span class="note__dot"></span>
-            We prioritize clarity, resilience, and operational simplicity over “story stocks.”
+            We prioritize clarity, resilience, and operational simplicity over "story stocks."
           </div>
         </div>
       </section>
@@ -223,18 +270,28 @@
       <!-- VALUE CREATION -->
       <section id="value" class="section section--soft">
         <div class="container" data-reveal>
+          <p class="section-label">How We Add Value</p>
           <h2>Value creation</h2>
 
           <div class="grid grid--3">
             <div class="card card--hover">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
               <h3>Operational rigor</h3>
               <p>Execution rhythm, KPI discipline, practical operational improvement.</p>
             </div>
             <div class="card card--hover">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
               <h3>Commercial focus</h3>
               <p>Selective growth initiatives, partnerships, and go-to-market refinement.</p>
             </div>
             <div class="card card--hover">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
               <h3>Financing structure</h3>
               <p>Pragmatic structuring and lender access to support the right capital stack.</p>
             </div>
@@ -242,14 +299,20 @@
 
           <div class="split split--tight" style="margin-top:18px">
             <div class="card card--hover">
+              <div class="card-icon card-icon--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
               <h3>For owners</h3>
               <p>Continuity, discretion, and a founder-friendly succession process.</p>
-              <a class="link" href="#contact">Discuss your situation</a>
+              <a class="link" href="#contact">Discuss your situation →</a>
             </div>
             <div class="card card--hover">
+              <div class="card-icon card-icon--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v4M8 12v4"/></svg>
+              </div>
               <h3>For operators / CEOs</h3>
               <p>Meaningful equity, clear governance, and operational autonomy.</p>
-              <a class="link" href="#contact">Get in touch</a>
+              <a class="link" href="#contact">Get in touch →</a>
             </div>
           </div>
         </div>
@@ -258,6 +321,7 @@
       <!-- TEAM -->
       <section id="team" class="section">
         <div class="container" data-reveal>
+          <p class="section-label">The People</p>
           <h2>Team</h2>
           <p class="muted">Standardized profiles. Proof-based bios. No filler.</p>
 
@@ -267,8 +331,8 @@
                 <img class="avatar" src="assets/team/kevin-camps.jpg" alt="Kevin Camps" loading="lazy" decoding="async" />
                 <div class="team-card__body">
                   <h3>Kevin Camps</h3>
-                  <p>Managing Partner • Chief Human Resources Officer</p>
-                  <span class="team-card__hint">View bio</span>
+                  <p>Managing Partner · Chief Human Resources Officer</p>
+                  <span class="team-card__hint">View bio ↓</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -281,8 +345,8 @@
                 <img class="avatar" src="assets/team/emmanuel-piechowski.jpg" alt="Emmanuel Piechowski" loading="lazy" decoding="async" />
                 <div class="team-card__body">
                   <h3>Emmanuel Piechowski</h3>
-                  <p>Group CFO • Finance</p>
-                  <span class="team-card__hint">View bio</span>
+                  <p>Group CFO · Finance</p>
+                  <span class="team-card__hint">View bio ↓</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -296,7 +360,7 @@
                 <div class="team-card__body">
                   <h3>Giulio Monaco</h3>
                   <p>Associate</p>
-                  <span class="team-card__hint">View bio</span>
+                  <span class="team-card__hint">View bio ↓</span>
                 </div>
               </summary>
               <div class="team-bio">
@@ -307,51 +371,60 @@
         </div>
       </section>
 
-      <!-- DIVIDER (coherent: waves, not “arc/monument”) -->
+      <!-- DIVIDER -->
       <section class="divider divider--trail" aria-hidden="true" data-parallax-base="72"></section>
 
       <!-- CONTACT -->
       <section id="contact" class="section">
         <div class="container split" data-reveal>
           <div>
+            <p class="section-label">Get in Touch</p>
             <h2>Contact</h2>
             <p>Succession opportunities, investor inquiries, or operator-CEO interest.</p>
 
             <div class="contactcards">
               <div class="contactcard">
-                <div class="contactcard__title">Email</div>
-                <div class="muted">info@mcpcapital.eu</div>
+                <div class="contactcard__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 7 12 13 2 7"/></svg>
+                </div>
+                <div>
+                  <div class="contactcard__title">Email</div>
+                  <div class="muted">info@mcpcapital.eu</div>
+                </div>
               </div>
 
               <div class="contactcard">
-                <div class="contactcard__title">Phone</div>
-                <div class="muted">Giulio Monaco • +32 (0)4 92 31 03 13</div>
+                <div class="contactcard__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15z"/></svg>
+                </div>
+                <div>
+                  <div class="contactcard__title">Phone</div>
+                  <div class="muted">Giulio Monaco · +32 (0)4 92 31 03 13</div>
+                </div>
               </div>
 
               <div class="contactcard">
-                <div class="contactcard__title">Location</div>
-                <div class="muted">Brussels, Belgium</div>
+                <div class="contactcard__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="contactcard__title">Location</div>
+                  <div class="muted">Brussels, Belgium</div>
+                </div>
               </div>
             </div>
-
-            <p class="small muted">
-              V1: no public deck. If needed later, we can add gated forms (Owner vs Operator) while staying on GitHub Pages.
-            </p>
           </div>
 
-          <div class="card">
+          <div class="card card--hover">
             <h3>Send a message</h3>
-            <p class="muted small">This opens your email client with a structured template.</p>
+            <p class="muted small">Opens your email client with a structured template.</p>
 
             <a
-              class="btn btn--primary"
+              class="btn btn--primary btn--glow"
               href="mailto:info@mcpcapital.eu?subject=Introduction%20-%20MCP%20Capital&body=Hello%20MCP%20Capital%2C%0D%0A%0D%0AProfile%20(owner%2Finvestor%2Foperator)%3A%20%0D%0ACompany%3A%20%0D%0ALocation%3A%20%0D%0ATiming%3A%20%0D%0A%0D%0AMessage%3A%0D%0A%0D%0ARegards%2C"
-            >
-              Email MCP Capital
-            </a>
+            >Email MCP Capital</a>
 
-            <div style="height: 10px"></div>
-
+            <div style="height:10px"></div>
             <a class="btn btn--secondary" href="#top">Back to top</a>
           </div>
         </div>
@@ -364,7 +437,7 @@
             <h2>Discreet. Pragmatic. Long-term.</h2>
             <p class="muted">A founder-friendly approach to acquisition and continuity.</p>
           </div>
-          <a class="btn btn--primary" href="#contact">Contact us</a>
+          <a class="btn btn--primary btn--glow btn--lg" href="#contact">Contact us</a>
         </div>
       </section>
     </main>
