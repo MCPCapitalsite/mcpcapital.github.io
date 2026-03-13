@@ -25,7 +25,6 @@
     '.grid > *',
     '.what-grid > *',
     '.mirror__col',
-    '.timeline > li',
     '.split--tight > *',
     '.contactcards > *',
     '.stats-strip .stat',
@@ -130,11 +129,17 @@
     }, 700 + i * 110);
   });
 
-  // ── 10. Timeline highlight ───────────────────────────────────────────────
-  const tlObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('tl-active'); });
-  }, { threshold: 0.65 });
-  document.querySelectorAll('.timeline li').forEach(li => tlObs.observe(li));
+  // ── 10. Timeline sequential reveal ──────────────────────────────────────
+  const timeline = document.querySelector('.timeline');
+  if (timeline) {
+    const items = [...timeline.querySelectorAll('li')];
+    const tlObs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      tlObs.disconnect();
+      items.forEach((li, i) => setTimeout(() => li.classList.add('tl-active'), i * 260));
+    }, { threshold: 0.25 });
+    tlObs.observe(timeline);
+  }
 
   // ── 11. Count-up animation ───────────────────────────────────────────────
   function countUp(el) {

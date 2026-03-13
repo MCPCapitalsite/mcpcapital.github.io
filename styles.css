@@ -498,7 +498,7 @@ p{margin:0 0 14px 0}
   border:var(--border);
   position:relative;
   counter-increment:tl;
-  transition: border-color .25s ease, box-shadow .25s ease, transform .2s ease;
+  transition: border-color .3s ease, box-shadow .3s ease, transform .25s ease, opacity .45s cubic-bezier(.22,1,.36,1);
 }
 .timeline li:hover{transform:translateX(4px)}
 .timeline li::before{
@@ -509,7 +509,7 @@ p{margin:0 0 14px 0}
   background: linear-gradient(to bottom, var(--green-mid), var(--green-dark));
   border-radius:14px 0 0 14px;
   opacity:0.35;
-  transition:opacity .25s ease;
+  transition:opacity .3s ease;
 }
 .timeline li::after{
   content:counter(tl);
@@ -527,12 +527,22 @@ p{margin:0 0 14px 0}
   justify-content:center;
   line-height:1;
   font-family:var(--font-body);
-  transition: background .25s ease;
+  transition: background .3s ease;
 }
-.timeline li.tl-active{border-color:rgba(31,77,58,0.30); box-shadow:0 4px 20px rgba(31,77,58,0.08)}
-.timeline li.tl-active::before{opacity:1}
-.timeline li.tl-active::after{background:rgba(31,77,58,0.15)}
-.timeline li{transition:border-color .3s ease, box-shadow .3s ease, transform .2s ease}
+
+/* sequential entrance */
+.js .timeline li{
+  opacity:0;
+  transform:translateX(-22px);
+}
+.js .timeline li.tl-active{
+  opacity:1;
+  transform:none;
+  border-color:rgba(31,77,58,0.25);
+  box-shadow:0 4px 20px rgba(31,77,58,0.07);
+}
+.js .timeline li.tl-active::before{opacity:1}
+.js .timeline li.tl-active::after{background:rgba(31,77,58,0.15)}
 
 /* ─────────────────────────────────────────── Grids */
 .grid{
