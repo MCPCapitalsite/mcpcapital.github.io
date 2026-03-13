@@ -241,18 +241,41 @@
     drawParticles();
   }
 
-  // ── 15. Criteria section mouse-following glow ───────────────────────────
+  // ── 15. Criteria: scroll-driven white→black + mouse glow ────────────────
   const criteriaSection = document.querySelector('#criteria');
   if (criteriaSection) {
+    // -- scroll-driven background --
+    function lerpInt(a, b, t) { return Math.round(a + (b - a) * t); }
+    function clamp01(v) { return Math.max(0, Math.min(1, v)); }
+
+    function updateScrollDark() {
+      const rect = criteriaSection.getBoundingClientRect();
+      const vh   = window.innerHeight;
+      // 0 = section just entering from below; 1 = section top at viewport top
+      const progress = clamp01((vh - rect.top) / vh);
+
+      const r = lerpInt(255,  7, progress);
+      const g = lerpInt(255, 11, progress);
+      const b = lerpInt(255,  9, progress);
+      criteriaSection.style.background = `rgb(${r},${g},${b})`;
+
+      // toggle text/card colours at 50%
+      criteriaSection.classList.toggle('is-dark', progress > 0.5);
+    }
+
+    window.addEventListener('scroll', updateScrollDark, { passive: true });
+    updateScrollDark();
+
+    // -- mouse glow --
     const glow = document.createElement('div');
     glow.className = 'criteria-glow';
+    glow.style.opacity = '0';
     criteriaSection.appendChild(glow);
 
     let cx = -800, cy = -800, tx = -800, ty = -800;
-    let inside = false;
 
-    criteriaSection.addEventListener('mouseenter', () => { inside = true; glow.style.opacity = '1'; });
-    criteriaSection.addEventListener('mouseleave', () => { inside = false; glow.style.opacity = '0'; });
+    criteriaSection.addEventListener('mouseenter', () => { glow.style.opacity = '1'; });
+    criteriaSection.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
     criteriaSection.addEventListener('mousemove', e => {
       const r = criteriaSection.getBoundingClientRect();
       tx = e.clientX - r.left;

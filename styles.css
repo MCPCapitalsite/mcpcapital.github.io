@@ -340,32 +340,56 @@ p{margin:0 0 14px 0}
   background: linear-gradient(180deg, var(--soft) 0%, #f0f0f0 100%);
 }
 
-/* ── Dark section (criteria) ── */
-.section--dark{
-  background: #070b09;
+/* ── Scroll-driven dark section (criteria) ── */
+/* background is set by JS via inline style; transitions handle text/card colors */
+.section--scroll-dark{
   position: relative;
   overflow: hidden;
 }
-.section--dark .container{ position:relative; z-index:1 }
-.section--dark h2,.section--dark h3{ color:#fff }
-.section--dark h2::after{ background:rgba(31,191,122,0.70) }
-.section--dark p{ color:rgba(255,255,255,0.58) }
-.section--dark .muted{ color:rgba(255,255,255,0.50) }
-.section--dark .section-label{ color:rgba(31,191,122,0.80) }
-.section--dark .card{
+.section--scroll-dark .container{ position:relative; z-index:1 }
+
+/* smooth transitions on all child elements */
+.section--scroll-dark h2,
+.section--scroll-dark h3,
+.section--scroll-dark p,
+.section--scroll-dark .muted,
+.section--scroll-dark .section-label,
+.section--scroll-dark .card,
+.section--scroll-dark .card h3,
+.section--scroll-dark .card p,
+.section--scroll-dark .card-icon,
+.section--scroll-dark .card-icon svg,
+.section--scroll-dark .boring-tag,
+.section--scroll-dark .note,
+.section--scroll-dark .note__dot{
+  transition:
+    color .35s ease,
+    background-color .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+/* dark state — toggled by JS at ~50% scroll progress */
+.section--scroll-dark.is-dark h2,
+.section--scroll-dark.is-dark h3{ color:#fff }
+.section--scroll-dark.is-dark h2::after{ background:rgba(31,191,122,0.70) }
+.section--scroll-dark.is-dark p{ color:rgba(255,255,255,0.58) }
+.section--scroll-dark.is-dark .muted{ color:rgba(255,255,255,0.50) }
+.section--scroll-dark.is-dark .section-label{ color:rgba(31,191,122,0.80) }
+.section--scroll-dark.is-dark .card{
   background:rgba(255,255,255,0.045);
   border-color:rgba(255,255,255,0.08);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
-.section--dark .card h3{ color:#fff }
-.section--dark .card p{ color:rgba(255,255,255,0.55) }
-.section--dark .card::before{ background:linear-gradient(90deg, rgba(31,191,122,0.55), transparent) }
-.section--dark .card--hover:hover{ border-color:rgba(31,191,122,0.28); box-shadow:0 8px 36px rgba(0,0,0,0.45) }
-.section--dark .card-icon{ background:rgba(31,191,122,0.10) }
-.section--dark .card-icon svg{ color:rgba(31,191,122,0.90) }
-.section--dark .boring-tag{ color:rgba(31,191,122,0.90); border-color:rgba(31,191,122,0.30); background:rgba(31,191,122,0.08) }
-.section--dark .note{ color:rgba(255,255,255,0.45) }
-.section--dark .note__dot{ box-shadow:0 0 0 3px rgba(31,191,122,0.18) }
+.section--scroll-dark.is-dark .card h3{ color:#fff }
+.section--scroll-dark.is-dark .card p{ color:rgba(255,255,255,0.55) }
+.section--scroll-dark.is-dark .card::before{ background:linear-gradient(90deg, rgba(31,191,122,0.55), transparent) }
+.section--scroll-dark.is-dark .card--hover:hover{ border-color:rgba(31,191,122,0.28); box-shadow:0 8px 36px rgba(0,0,0,0.45) }
+.section--scroll-dark.is-dark .card-icon{ background:rgba(31,191,122,0.10) }
+.section--scroll-dark.is-dark .card-icon svg{ color:rgba(31,191,122,0.90) }
+.section--scroll-dark.is-dark .boring-tag{ color:rgba(31,191,122,0.90); border-color:rgba(31,191,122,0.30); background:rgba(31,191,122,0.08) }
+.section--scroll-dark.is-dark .note{ color:rgba(255,255,255,0.45) }
+.section--scroll-dark.is-dark .note__dot{ box-shadow:0 0 0 3px rgba(31,191,122,0.18) }
 
 /* glow orb that follows the mouse */
 .criteria-glow{
@@ -636,6 +660,13 @@ p{margin:0 0 14px 0}
 .divider--sport{background-image:url("assets/divider-sport.jpg")}
 .divider--waves{background-image:url("assets/hero-waves.jpg")}
 .divider--trail{background-image:url("assets/divider-trail.jpg")}
+/* top edge fades from dark (criteria exits black), bottom stays white */
+.divider--from-dark::after{
+  background:
+    linear-gradient(180deg, #070b09 0%, rgba(7,11,9,0.00) 36%),
+    linear-gradient(0deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.00) 24%),
+    rgba(17,17,17,0.22);
+}
 
 /* ─────────────────────────────────────────── Team */
 .team-card{padding:0; transition: box-shadow .2s ease}
