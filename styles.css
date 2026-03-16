@@ -675,6 +675,27 @@ p{margin:0 0 14px 0}
     rgba(17,17,17,0.22);
 }
 
+/* ─────────────────────────────────────────── LinkedIn */
+.team-card__name-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:4px;
+}
+.team-card__name-row h3{margin:0}
+.linkedin-link{
+  display:flex;
+  align-items:center;
+  color:rgba(31,77,58,0.55);
+  flex-shrink:0;
+  transition: color .15s ease, transform .15s ease;
+}
+.linkedin-link:hover{
+  color:#0A66C2;
+  transform: translateY(-1px);
+}
+.linkedin-icon{width:18px; height:18px}
+
 /* ─────────────────────────────────────────── Team */
 .team-card{padding:0; transition: box-shadow .2s ease}
 .team-card:hover{box-shadow: var(--shadow-lg)}
