@@ -806,6 +806,7 @@ details:hover .avatar, details[open] .avatar{
   gap:20px;
 }
 .brand-text{font-family:var(--font-head); font-weight:600; font-size:20px}
+.brand-text::first-letter{color:var(--green);}
 .footer__links{display:flex; gap:14px; color:var(--muted)}
 .footer__links a{transition:color .15s ease}
 .footer__links a:hover{color:var(--text)}
