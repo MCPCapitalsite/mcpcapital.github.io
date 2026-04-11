@@ -259,7 +259,7 @@ p{margin:0 0 14px 0}
   color:rgba(255,255,255,0.6);
   margin:0 0 18px 0;
 }
-.hero h1,.hero__h1{color:#fff; max-width:16ch}
+.hero h1,.hero__h1{color:#fff; max-width:16ch; font-size:4.4rem; line-height:1.02;}
 .hero p{
   color:rgba(255,255,255,0.85);
   max-width:56ch;
