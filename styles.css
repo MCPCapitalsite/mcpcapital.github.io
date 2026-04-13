@@ -673,7 +673,7 @@ p{margin:0 0 14px 0}
 .divider--mountains,
 .divider--sport,
 .divider--trail{
-  background-size:120% auto;
+  background-size:100% auto;
 }
 .divider--mountains{background-image:url("assets/divider-mountains.png")}
 .divider--sport{background-image:url("assets/divider-sport.png")}
