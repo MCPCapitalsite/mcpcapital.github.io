@@ -203,7 +203,7 @@ p{margin:0 0 14px 0}
 /* ─────────────────────────────────────────── Hero */
 .hero{
   position:relative;
-  min-height:calc(100vh - 76px - 250px);
+  min-height:calc(100vh - 76px);
   display:flex;
   align-items:flex-start;
   background:
@@ -214,6 +214,11 @@ p{margin:0 0 14px 0}
   background-position:center;
   overflow:hidden;
 }
+
+@media (min-width: 900px){
+  .hero{align-items:center}
+}
+
 
 /* animated shimmer overlay */
 .hero::before{
@@ -247,7 +252,7 @@ p{margin:0 0 14px 0}
 }
 
 .hero__content{
-  padding:12px 22px 80px;
+  padding: clamp(40px, 7vw, 92px) 22px clamp(40px, 7vw, 92px);
   position:relative;
   z-index:2;
 }
@@ -259,11 +264,11 @@ p{margin:0 0 14px 0}
   color:rgba(255,255,255,0.6);
   margin:0 0 18px 0;
 }
-.hero h1,.hero__h1{color:#fff; max-width:20ch; font-size:3.9rem; line-height:1.02; white-space:normal;}
+.hero h1,.hero__h1{color:#fff; max-width:20ch; font-size:clamp(3.2rem, 5vw, 6.6rem); line-height:1.02; white-space:normal;}
 .hero p{
   color:rgba(255,255,255,0.85);
   max-width:56ch;
-  font-size:18px;
+  font-size:clamp(1rem, 1.1vw, 1.2rem);
   line-height:1.65;
 }
 .hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin:22px 0 6px 0}
