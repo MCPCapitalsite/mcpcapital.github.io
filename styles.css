@@ -55,8 +55,8 @@ a{color:inherit; text-decoration:none}
   padding:0 4px;
   transition:height .25s ease;
 }
-.nav__inner--compact .brand{
-  margin-left:40px; /* ≈ 3 cm */
+..nav__inner--compact .brand{
+  margin-left:0;
   margin-right:auto;
   padding-left:0;
   padding-right:0;
@@ -72,8 +72,8 @@ a{color:inherit; text-decoration:none}
   transition: opacity .15s ease;
 }
 .brand:hover{opacity:0.8}
-.brand__logo{display:block; height:75px; width:auto}
-@media (min-width: 980px){.brand__logo{height:88px}}
+.brand__logo{display:block; height:56px; width:auto}
+@media (min-width: 980px){.brand__logo{height:66px}}
 
 .menu{display:flex; gap:18px; font-size:14px; color:var(--muted)}
 .menu a{padding:8px 6px; position:relative; transition:color .15s ease}
