@@ -684,11 +684,15 @@ p{margin:0 0 14px 0}
 .divider--mountains{background-image:url("assets/divider-mountains.png")}
 .divider--sport{background-image:url("assets/divider-sport.png")}
 .divider--waves{background-image:url("assets/hero-waves.jpg")}
-.divider--trail{background-image:url("assets/divider-trail.png"); background-size:100% auto}
+.divider--trail{
+  background-image:url("assets/divider-trail.png");
+  background-size:cover;
+  height:clamp(200px, 24vw, 380px);
+}
 .divider--trail::after{
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.00) 6%),
-    linear-gradient(0deg,   rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.00) 6%),
+    linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.00) 18%),
+    linear-gradient(0deg,   rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.00) 18%),
     rgba(17,17,17,0.22);
 }
 /* top edge fades from dark (criteria exits black), bottom stays white */
