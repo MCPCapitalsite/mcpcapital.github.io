@@ -50,12 +50,13 @@ a{color:inherit; text-decoration:none}
   display:flex;
   align-items:center;
   justify-content:space-between;
+  flex-wrap:nowrap;
   height:76px;
   gap:18px;
   padding:0 4px;
   transition:height .25s ease;
 }
-..nav__inner--compact .brand{
+.nav__inner--compact .brand{
   margin-left:0;
   margin-right:auto;
   padding-left:0;
@@ -72,8 +73,9 @@ a{color:inherit; text-decoration:none}
   transition: opacity .15s ease;
 }
 .brand:hover{opacity:0.8}
-.brand__logo{display:block; height:56px; width:auto}
-@media (min-width: 980px){.brand__logo{height:66px}}
+.brand__logo{display:block; height:56px; width:auto; max-width:140px}
+@media (max-width: 480px){.brand__logo{height:44px; max-width:110px}}
+@media (min-width: 980px){.brand__logo{height:66px; max-width:none}}
 
 .menu{display:flex; gap:18px; font-size:14px; color:var(--muted)}
 .menu a{padding:8px 6px; position:relative; transition:color .15s ease}
@@ -673,7 +675,7 @@ p{margin:0 0 14px 0}
 .divider--mountains,
 .divider--sport,
 .divider--trail{
-  background-size:100% auto;
+  background-size:cover;
 }
 .divider--mountains{background-image:url("assets/divider-mountains.png")}
 .divider--sport{background-image:url("assets/divider-sport.png")}
