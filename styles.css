@@ -93,8 +93,8 @@ a{color:inherit; text-decoration:none}
 .menu a.active{color:var(--text)}
 @media (max-width: 900px){
   .menu{display:none}
-  .nav__inner{padding:0 12px 0 0}
-  .brand{padding:6px 0}
+  .nav .nav__inner{padding:0 12px 0 0}
+  .nav .brand{padding:6px 0}
 }
 
 /* ─────────────────────────────────────────── Buttons */
@@ -686,7 +686,7 @@ p{margin:0 0 14px 0}
 .divider--mountains{background-image:url("assets/divider-mountains.png")}
 .divider--sport{background-image:url("assets/divider-sport.png")}
 .divider--waves{background-image:url("assets/hero-waves.jpg")}
-.divider--trail{background-image:url("assets/divider-trail.png"); height:clamp(420px, 36vw, 560px)}
+.divider--trail{background-image:url("assets/divider-trail.png"); background-size:100% auto}
 /* top edge fades from dark (criteria exits black), bottom stays white */
 .divider--from-dark::after{
   background:
